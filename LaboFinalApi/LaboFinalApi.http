@@ -1,0 +1,6 @@
+@LaboFinalApi_HostAddress = http://localhost:5151
+
+GET {{LaboFinalApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
