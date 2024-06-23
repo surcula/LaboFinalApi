@@ -11,10 +11,23 @@ namespace LaboFinalAPIDAL
 {
     public class DDBContext : DbContext
     {
-        DbSet<TypesItems> TypesItems { get; set; }
+        DbSet<Backgrounds> Backgrounds { get; set; }
+        DbSet<BackgroundSkills> BackgroundSkills { get; set; }
+        DbSet<Classes> Classes { get; set; }
+        DbSet<ClassSkills> ClassSkills { get; set; }
+        DbSet<Entities> Entities { get; set; }
+        DbSet<EntitySkills> entitySkills { get; set; }  
+        DbSet<Inventories> inventories { get; set; }
         DbSet<Items> Items { get; set; }
+        DbSet<Languages> Languages { get; set; }
+        DbSet<RaceLanguages> RaceLanguages { get; set; }
+        DbSet<Races> Races { get; set; }
+        DbSet<Roles> Roles { get; set; }
+        DbSet<Skills> Skills { get; set; }
         DbSet<Sources> Sources { get; set; }
         DbSet<Spells> Spells { get; set; }
+        DbSet<TypesItems> TypesItems { get; set; }
+        DbSet<Users> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-HSV5O301;database=Labofinal2024;Integrated Security=True;Trust Server Certificate=True",

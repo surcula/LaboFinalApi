@@ -9,7 +9,10 @@ namespace LaboFinalAPIDomain.Models
     public class Backgrounds
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Background { get; set; }
+        public int LanguageNumber { get; set; }
+        public string Feature { get; set; }
+        public string FeatureDescription { get; set; }
 
     }
 }
