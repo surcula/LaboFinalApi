@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LaboFinalAPIBLL\LaboFinalAPIBLL.csproj" />
     <ProjectReference Include="..\LaboFinalAPIDomain\LaboFinalAPIDomain.csproj" />
   </ItemGroup>
 

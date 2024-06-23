@@ -1,4 +1,8 @@
+using LaboFinalAPIBLL.Interfaces.Repositories;
+using LaboFinalAPIBLL.Interfaces.Services;
+using LaboFinalAPIBLL.Services;
 using LaboFinalAPIDAL;
+using LaboFinalAPIDAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,10 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDbContext<DDBContext>();
+
+
+builder.Services.AddScoped<IFeatRepository,FeatRepo>();
+builder.Services.AddScoped<IFeatsService, FeatsService>();
 
 
 var app = builder.Build();
