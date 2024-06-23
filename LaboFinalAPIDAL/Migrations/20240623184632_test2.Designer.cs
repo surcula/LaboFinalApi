@@ -4,6 +4,7 @@ using LaboFinalAPIDAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaboFinalAPIDAL.Migrations
 {
     [DbContext(typeof(DDBContext))]
-    partial class DDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240623184632_test2")]
+    partial class test2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -806,126 +809,6 @@ namespace LaboFinalAPIDAL.Migrations
                             Name = "Virtuose des arcanes",
                             Prerequisite = "Capacité à lancer au moins un sort",
                             sourceId = 2
-                        },
-                        new
-                        {
-                            Id = 56,
-                            Description = "Vous apprenez un tour de magie de la liste de sorts de l'artificier. Vous apprenez également deux sorts de 1er niveau de la liste de sorts de l'artificier. Vous pouvez lancer chacun de ces sorts une fois sans utiliser d'emplacement de sort. Vous récupérez la capacité de le faire lorsque vous terminez un repos long.",
-                            Name = "Artificier initié",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 57,
-                            Description = "Vous gagnez une compétence avec les armes de guerre et une compétence avec un bouclier. Vous gagnez également une attaque supplémentaire avec une arme de guerre ou un bouclier.",
-                            Name = "Initiation au combat rapproché",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 58,
-                            Description = "Lorsque vous lancez un sort de métamorphose de 1er niveau ou plus qui cible une créature amie, vous pouvez cibler une deuxième créature amie dans la portée du sort avec le même sort.",
-                            Name = "Adepte des métamorphoses",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 59,
-                            Description = "Vous gagnez une compétence dans une arme au choix et une compétence dans une armure légère ou moyenne.",
-                            Name = "Érudition martiale",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 60,
-                            Description = "Vous gagnez la compétence dans la compétence Survie. Vous avez l'avantage sur les jets de survie pour suivre les créatures et trouver de la nourriture et de l'eau dans la nature.",
-                            Name = "Expert en survie",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 61,
-                            Description = "Vous apprenez la recette de trois potions de guérison et pouvez les créer pendant un repos long en utilisant des composants alchimiques.",
-                            Name = "Initiation à l'alchimie",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 62,
-                            Description = "Vous gagnez une compétence avec les arcs longs et les arcs courts. Vous pouvez ignorer les pénalités de désavantage pour attaquer à longue portée avec ces armes.",
-                            Name = "Initiation au tir à l'arc",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 63,
-                            Description = "Lorsque vous utilisez une baguette, un bâton ou un sceptre pour lancer un sort, vous pouvez augmenter le DD de sauvegarde du sort de 1.",
-                            Name = "Adepte en manipulation magique",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 64,
-                            Description = "Lorsque vous protégez une créature amie avec votre bouclier, la créature gagne un bonus de +1 à la CA et vous avez l'avantage sur les jets de sauvegarde pour éviter d'être déplacé ou renversé.",
-                            Name = "Défenseur des faibles",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 65,
-                            Description = "Vous apprenez deux sorts de la liste de sorts de l'école de l'illusion ou de la nécromancie. Vous pouvez les lancer sans utiliser de composantes matérielles.",
-                            Name = "Sorcier de l'ombre",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 66,
-                            Description = "Vous pouvez créer une potion de guérison pendant un repos court en utilisant des composants alchimiques. Vous pouvez également identifier les potions en les goûtant.",
-                            Name = "Maître des potions",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 67,
-                            Description = "Vous apprenez deux sorts de l'école de l'invocation. Vous pouvez les lancer sans utiliser de composantes matérielles.",
-                            Name = "Initiation à l'invocation",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 68,
-                            Description = "Vous gagnez la compétence avec les armures intermédiaires et lourdes. Lorsque vous portez une armure intermédiaire ou lourde, vous pouvez ajouter 1 à la CA.",
-                            Name = "Expert en armures",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 69,
-                            Description = "Vous gagnez la compétence avec les armes de guerre. Vous pouvez choisir deux armes de guerre et vous gagnez un bonus de +1 aux jets d'attaque et de dégâts avec ces armes.",
-                            Name = "Expert en armes",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
-                        },
-                        new
-                        {
-                            Id = 70,
-                            Description = "Vous apprenez un tour de magie de la liste de sorts de l'ensorceleur, du magicien ou du sorcier. Vous pouvez également lancer un sort de niveau 1 de ces listes de sorts une fois sans utiliser d'emplacement de sort. Vous récupérez la capacité de le faire lorsque vous terminez un repos long.",
-                            Name = "Initiation au combat magique",
-                            Prerequisite = "Aucun",
-                            sourceId = 3
                         });
                 });
 

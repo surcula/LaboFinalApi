@@ -28,16 +28,18 @@ namespace LaboFinalAPIDAL
         DbSet<Spells> Spells { get; set; }
         DbSet<TypesItems> TypesItems { get; set; }
         DbSet<Users> Users { get; set; }
+        DbSet<Feats> Feats { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-HSV5O301;database=Labofinal2024;Integrated Security=True;Trust Server Certificate=True",
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;database=LaboFinal;Integrated Security=True;Connect Timeout=60;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False",
                 b => b.MigrationsAssembly("LaboFinalAPIDAL"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new typesItemsConfig());
-            //modelBuilder.ApplyConfiguration(new ItemsConfig());
+            modelBuilder.ApplyConfiguration(new EntitiesConfig());
+            modelBuilder.ApplyConfiguration(new SourcesConfig());
+            modelBuilder.ApplyConfiguration(new FeatsConfig());
         }
     }
 }

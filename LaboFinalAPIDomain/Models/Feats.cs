@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDomain.Models
 {
-    public class Backgrounds
+    public class Feats
     {
         public int Id { get; set; }
-        public string Background { get; set; }
-        public int LanguageNumber { get; set; }
-        public string Feature { get; set; }
-        public string FeatureDescription { get; set; }
+        public string Name { get; set; }
+        public string Prerequisite { get; set; }
+        public string Description { get; set; }
         public int sourceId { get; set; }
         public Sources Source { get; set; }
-
     }
 }

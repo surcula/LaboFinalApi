@@ -9,15 +9,25 @@ namespace LaboFinalAPIDomain.Models
     public class Entities
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public Users Users { get; set; }
+        public int BackgroundId { get; set; }
         public Backgrounds Backgrounds { get; set; }
+        public int RaceId { get; set; }
         public Races Races { get; set; }
+        public int ClasseId { get; set; }
         public Classes Classes { get; set; }
+        public int ArmorId { get; set; }
         public Items Armor { get; set; }
+        public int ShieldId { get; set; }
         public Items Shield { get; set; }
+        public int WeaponOneId { get; set; }
         public Items WeaponOne { get; set; }
+        public int WeaponTwoId { get; set; }
         public Items WeaponTwo { get; set; }
+        public int ToolOneId { get; set; }
         public Items ToolOne { get; set; }
+        public int ToolTwoId { get; set; }
         public Items ToolTwo { get; set; }
         public string Name {  get; set; }
         public int Strenght { get; set; }
@@ -35,7 +45,6 @@ namespace LaboFinalAPIDomain.Models
         public string Age { get; set; }
         public string Height { get; set; }
         public string Weight { get; set; }
-
         public int Xp { get; set; }
         public int Gold { get; set; }
         public string Eyes { get; set; }
@@ -47,7 +56,7 @@ namespace LaboFinalAPIDomain.Models
         public string Ideals { get; set; }
         public string Bonds { get; set; }
         public string Flaws { get; set; }
-        public string allies { get; set; }
+        public string Allies { get; set; }
         public string AdditionalFeatures { get; set; }
 
     }
