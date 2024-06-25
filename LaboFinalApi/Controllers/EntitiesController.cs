@@ -14,11 +14,7 @@ namespace LaboFinalApi.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        
 
         // GET api/<EntitiesController>/5
         [HttpGet("{id}")]

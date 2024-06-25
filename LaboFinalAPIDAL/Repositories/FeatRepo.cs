@@ -10,23 +10,18 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Repositories
 {
-    public class FeatRepo(DDBContext dbContext) : IFeatRepository
+    public class FeatRepo(DDBContext dbContext) : IFeatsRepository
     {
-       
+
         /// <summary>
         /// Return all feats
         /// </summary>
         /// <returns>list Feats</returns>
         public IEnumerable<Feats> GetAll()
         {
-            try
-            {
-                return dbContext.Set<Feats>().ToList();
-            }           
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while retrieving feats.", ex);
-            }
+            return dbContext.Set<Feats>()
+                .Include(f => f.Source)
+                .ToList();
         }
     }
 }

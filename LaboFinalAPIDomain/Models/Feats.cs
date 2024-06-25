@@ -12,7 +12,7 @@ namespace LaboFinalAPIDomain.Models
         public string Name { get; set; }
         public string Prerequisite { get; set; }
         public string Description { get; set; }
-        public int sourceId { get; set; }
+        public int SourceId { get; set; }
         public Sources Source { get; set; }
     }
 }

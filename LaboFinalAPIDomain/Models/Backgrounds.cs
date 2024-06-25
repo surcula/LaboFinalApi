@@ -13,7 +13,7 @@ namespace LaboFinalAPIDomain.Models
         public int LanguageNumber { get; set; }
         public string Feature { get; set; }
         public string FeatureDescription { get; set; }
-        public int sourceId { get; set; }
+        public int SourceId { get; set; }
         public Sources Source { get; set; }
 
     }

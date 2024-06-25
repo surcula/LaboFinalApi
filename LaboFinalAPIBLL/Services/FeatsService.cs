@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIBLL.Services
 {
-    public class FeatsService(IFeatRepository featRepository) : IFeatsService
+    public class FeatsService(IFeatsRepository featRepository) : IFeatsService
     {
         /// <summary>
         /// Return all Feats
@@ -17,14 +17,9 @@ namespace LaboFinalAPIBLL.Services
         /// <returns> </returns>
         public IEnumerable<Feats> GetAll()
         {
-            try
-            {
-                return featRepository.GetAll();
-            }                
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while retrieving feats.", ex);
-            }
+            
+            return featRepository.GetAll();
+            
         }
     }
 }

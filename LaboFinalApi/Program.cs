@@ -19,7 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DDBContext>();
 
 
-builder.Services.AddScoped<IFeatRepository,FeatRepo>();
+builder.Services.AddScoped<IFeatsRepository,FeatRepo>();
 builder.Services.AddScoped<IFeatsService, FeatsService>();
 
 

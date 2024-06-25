@@ -18,7 +18,7 @@ namespace LaboFinalAPIDomain.Models
         public string Duration { get; set; }
         public string Description { get; set; }
         public string HigherLevel { get; set; }
-        public int sourceId { get; set; }
+        public int SourceId { get; set; }
         public Sources Source { get; set; }
     }
 }
