@@ -28,13 +28,13 @@ namespace LaboFinalAPIDAL.Configurations
             builder.Property(e => e.AdditionalFeatures).IsRequired();
 
             builder.HasOne(e => e.Users)
-                .WithMany()
-                .HasForeignKey(e => e.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                                    .HasForeignKey(e => e.UserId)
+                                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(e => e.Backgrounds)
                 .WithMany()
-                .HasForeignKey(e => e.BackgroundId)
+                        .HasForeignKey(e => e.BackgroundId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(e => e.Races)
