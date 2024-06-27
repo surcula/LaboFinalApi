@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Repositories
 {
-    public class ClassRepo(DDBContext dbContext) : IClassesRepository
+    public class SpellRepo(DDBContext dbContext) : ISpellRepository
     {
-        /// <summary>
-        /// Return all classes
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Classes> GetAll()
+        public IEnumerable<Spells> GetAll()
         {
-            return dbContext.Set<Classes>()
-                .Include( c => c.Source)
+            return dbContext.Set<Spells>()
+                .Include( s => s.Source)
                 .ToList();
         }
     }

@@ -22,6 +22,11 @@ builder.Services.AddDbContext<DDBContext>();
 builder.Services.AddScoped<IFeatsRepository,FeatRepo>();
 builder.Services.AddScoped<IFeatsService, FeatsService>();
 
+builder.Services.AddScoped<IClassesRepository, ClassRepo>();
+builder.Services.AddScoped<IClassesService, ClassService>();
+
+builder.Services.AddScoped<ISpellRepository, SpellRepo>();
+builder.Services.AddScoped<ISpellService, SpellService>();
 
 var app = builder.Build();
 

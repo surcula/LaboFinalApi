@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Repositories
 {
-    public class SourcesRepo
+    public class SourceRepo
     {
 
     }

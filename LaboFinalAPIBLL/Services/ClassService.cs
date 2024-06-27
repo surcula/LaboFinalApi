@@ -1,25 +1,24 @@
 ﻿using LaboFinalAPIBLL.Interfaces.Repositories;
+using LaboFinalAPIBLL.Interfaces.Services;
 using LaboFinalAPIDomain.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboFinalAPIDAL.Repositories
+namespace LaboFinalAPIBLL.Services
 {
-    public class ClassRepo(DDBContext dbContext) : IClassesRepository
+    public class ClassService(IClassesRepository classesRepository) : IClassesService
     {
         /// <summary>
-        /// Return all classes
+        /// return all classes
         /// </summary>
         /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public IEnumerable<Classes> GetAll()
         {
-            return dbContext.Set<Classes>()
-                .Include( c => c.Source)
-                .ToList();
+            return classesRepository.GetAll();
         }
     }
 }

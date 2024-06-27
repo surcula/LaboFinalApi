@@ -41,6 +41,7 @@ namespace LaboFinalAPIDAL
             modelBuilder.ApplyConfiguration(new EntitiesConfig());
             modelBuilder.ApplyConfiguration(new SourcesConfig());
             modelBuilder.ApplyConfiguration(new FeatsConfig());
+            modelBuilder.ApplyConfiguration(new SpellsConfig());
         }
     }
 }
