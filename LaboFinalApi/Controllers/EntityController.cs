@@ -1,8 +1,4 @@
-﻿using LaboFinalAPIBLL.Interfaces.Services;
-using LaboFinalAPIBLL.Services;
-using LaboFinalAPIDomain.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,45 +6,43 @@ namespace LaboFinalApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatsController(IFeatsService featsService) : ControllerBase
+    public class EntityController : ControllerBase
     {
         // GET: api/<FeatsController>
+        /// <summary>
+        /// return all entity
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetAll()
+        public IEnumerable<string> Get()
         {
-            try
-            {
-                return Ok(featsService.GetAll());
-            }            
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            return new string[] { "value1", "value2" };
         }
+        
 
-        // GET api/<FeatsController>/5
+        // GET api/<EntitiesController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<FeatsController>
+        // POST api/<EntitiesController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<FeatsController>/5
+        // PUT api/<EntitiesController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<FeatsController>/5
+        // DELETE api/<EntitiesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

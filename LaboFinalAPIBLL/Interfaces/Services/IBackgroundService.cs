@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaboFinalAPIDomain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace LaboFinalAPIBLL.Interfaces.Services
 {
     public interface IBackgroundService
     {
-
+        IEnumerable<Backgrounds> GetAll();
     }
 }

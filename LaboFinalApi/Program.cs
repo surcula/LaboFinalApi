@@ -18,6 +18,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DDBContext>();
 
+builder.Services.AddScoped<IBackgroundRepository, BackgroundRepo>();
+builder.Services.AddScoped<IBackgroundService, LaboFinalAPIBLL.Services.BackgroundService>();
 
 builder.Services.AddScoped<IFeatsRepository,FeatRepo>();
 builder.Services.AddScoped<IFeatsService, FeatsService>();

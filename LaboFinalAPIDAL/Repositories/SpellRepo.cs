@@ -17,5 +17,11 @@ namespace LaboFinalAPIDAL.Repositories
                 .Include( s => s.Source)
                 .ToList();
         }
+
+        public void Create(Spells spell)
+        {
+            dbContext.Add(spell);
+            dbContext.SaveChanges();
+        }
     }
 }

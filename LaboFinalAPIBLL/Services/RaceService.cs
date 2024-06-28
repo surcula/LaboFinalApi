@@ -9,20 +9,15 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIBLL.Services
 {
-    public class SpellService(ISpellRepository spellRepository) : ISpellService
+    public class RaceService(IRacesRepository racesRepository) : IRacesService
     {
         /// <summary>
-        /// Return all spells
+        /// return all races
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Spells> GetAll()
+        public IEnumerable<Races> GetAll()
         {
-            return spellRepository.GetAll();
-        }
-
-        public void Create(Spells spell)
-        {
-            spellRepository.Create(spell);
+            return racesRepository.GetAll();
         }
     }
 }

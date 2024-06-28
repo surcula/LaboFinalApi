@@ -10,5 +10,6 @@ namespace LaboFinalAPIBLL.Interfaces.Repositories
     public interface ISpellRepository
     {
         IEnumerable<Spells> GetAll();
+        void Create(Spells spell);
     }
 }

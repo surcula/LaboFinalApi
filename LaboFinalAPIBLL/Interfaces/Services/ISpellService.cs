@@ -10,5 +10,6 @@ namespace LaboFinalAPIBLL.Interfaces.Services
     public interface ISpellService
     {
         IEnumerable<Spells> GetAll();
+        void Create(Spells spell);
     }
 }
