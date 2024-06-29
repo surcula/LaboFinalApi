@@ -30,17 +30,17 @@ namespace LaboFinalAPIDAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BackgroundsId")
+                    b.Property<int>("BackgroundId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SkillsId")
+                    b.Property<int>("SkillId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BackgroundsId");
+                    b.HasIndex("BackgroundId");
 
-                    b.HasIndex("SkillsId");
+                    b.HasIndex("SkillId");
 
                     b.ToTable("BackgroundSkills");
                 });
@@ -86,17 +86,17 @@ namespace LaboFinalAPIDAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ClassesId")
+                    b.Property<int>("ClassId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SkillsId")
+                    b.Property<int>("SkillId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClassesId");
+                    b.HasIndex("ClassId");
 
-                    b.HasIndex("SkillsId");
+                    b.HasIndex("SkillId");
 
                     b.ToTable("ClassSkills");
                 });
@@ -188,7 +188,7 @@ namespace LaboFinalAPIDAL.Migrations
                     b.Property<int>("Charisma")
                         .HasColumnType("int");
 
-                    b.Property<int>("ClasseId")
+                    b.Property<int>("ClassId")
                         .HasColumnType("int");
 
                     b.Property<int>("Constitution")
@@ -292,7 +292,7 @@ namespace LaboFinalAPIDAL.Migrations
 
                     b.HasIndex("BackgroundId");
 
-                    b.HasIndex("ClasseId");
+                    b.HasIndex("ClassId");
 
                     b.HasIndex("RaceId");
 
@@ -322,17 +322,17 @@ namespace LaboFinalAPIDAL.Migrations
                     b.Property<int>("Bonus")
                         .HasColumnType("int");
 
-                    b.Property<int>("EntitiesId")
+                    b.Property<int>("EntityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SkillsId")
+                    b.Property<int>("SkillId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EntitiesId");
+                    b.HasIndex("EntityId");
 
-                    b.HasIndex("SkillsId");
+                    b.HasIndex("SkillId");
 
                     b.ToTable("entitySkills");
                 });
@@ -937,17 +937,17 @@ namespace LaboFinalAPIDAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("EntitiesId")
+                    b.Property<int>("EntitieId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemsId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EntitiesId");
+                    b.HasIndex("EntitieId");
 
-                    b.HasIndex("ItemsId");
+                    b.HasIndex("ItemId");
 
                     b.ToTable("inventories");
                 });
@@ -982,12 +982,12 @@ namespace LaboFinalAPIDAL.Migrations
                     b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TypesItemsId")
+                    b.Property<int?>("TypeItemId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TypesItemsId");
+                    b.HasIndex("TypeItemId");
 
                     b.ToTable("Items");
                 });
@@ -1007,6 +1007,218 @@ namespace LaboFinalAPIDAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Language = "Commun"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Language = "Nain"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Language = "Elfe"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Language = "Gnome"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Language = "Halfelin"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Language = "Orque"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Language = "Abyssal"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Language = "Céleste"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Language = "Commun des profondeurs"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Language = "Draconique"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Language = "Infernal"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Language = "Primordial"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Language = "Sylvestre"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Language = "Squelettique"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Language = "Ignan"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Language = "Terran"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Language = "Aquatique"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Language = "Auran"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Language = "Géant"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Language = "Gobelin"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Language = "Gnoll"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Language = "Halfling"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Language = "Orc"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Language = "Profond"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Language = "Chaque"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Language = "Mortel"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Language = "Mouvement"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Language = "Liaison"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Language = "Ces"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Language = "Ici"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Language = "Mortelle"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Language = "Moustique"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Language = "L'Argile"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Language = "Monde"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Language = "Merveilles"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Language = "Messager"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Language = "Aujourd'hui"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Language = "Peut"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Language = "Les"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Language = "L'Immonde"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Language = "Meuble"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Language = "Migale"
+                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.RaceLanguages", b =>
@@ -1017,19 +1229,75 @@ namespace LaboFinalAPIDAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("LanguagesId")
+                    b.Property<int>("LanguageId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RacesId")
+                    b.Property<int>("RaceId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LanguagesId");
+                    b.HasIndex("LanguageId");
 
-                    b.HasIndex("RacesId");
+                    b.HasIndex("RaceId");
 
                     b.ToTable("RaceLanguages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LanguageId = 1,
+                            RaceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LanguageId = 3,
+                            RaceId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LanguageId = 2,
+                            RaceId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            LanguageId = 2,
+                            RaceId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            LanguageId = 4,
+                            RaceId = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            LanguageId = 23,
+                            RaceId = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            LanguageId = 15,
+                            RaceId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            LanguageId = 3,
+                            RaceId = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            LanguageId = 3,
+                            RaceId = 9
+                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Races", b =>
@@ -1067,8 +1335,9 @@ namespace LaboFinalAPIDAL.Migrations
                     b.Property<int>("SourceId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Speed")
-                        .HasColumnType("int");
+                    b.Property<string>("Speed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StrenghtBonus")
                         .IsRequired()
@@ -1083,6 +1352,134 @@ namespace LaboFinalAPIDAL.Migrations
                     b.HasIndex("SourceId");
 
                     b.ToTable("Races");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CharismsBonus = "1",
+                            ConstitutionBonus = "1",
+                            DexterityBonus = "1",
+                            IntelligenceBonus = "1",
+                            Race = "Humain",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "1",
+                            WisdomBonus = "1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CharismsBonus = "0",
+                            ConstitutionBonus = "0",
+                            DexterityBonus = "2",
+                            IntelligenceBonus = "1",
+                            Race = "Haut-elfe",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "0",
+                            WisdomBonus = "0"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CharismsBonus = "0",
+                            ConstitutionBonus = "0",
+                            DexterityBonus = "0",
+                            IntelligenceBonus = "0",
+                            Race = "Humain (Don)",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "0",
+                            WisdomBonus = "0"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CharismsBonus = "0",
+                            ConstitutionBonus = "2",
+                            DexterityBonus = "0",
+                            IntelligenceBonus = "0",
+                            Race = "Nain",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "7m/round",
+                            StrenghtBonus = "2",
+                            WisdomBonus = "0"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CharismsBonus = "0",
+                            ConstitutionBonus = "0",
+                            DexterityBonus = "0",
+                            IntelligenceBonus = "2",
+                            Race = "Gnome",
+                            Size = "P",
+                            SourceId = 1,
+                            Speed = "7m/round",
+                            StrenghtBonus = "0",
+                            WisdomBonus = "0"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CharismsBonus = "-1",
+                            ConstitutionBonus = "1",
+                            DexterityBonus = "0",
+                            IntelligenceBonus = "-2",
+                            Race = "Demi-Orc",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "2",
+                            WisdomBonus = "0"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CharismsBonus = "1",
+                            ConstitutionBonus = "0",
+                            DexterityBonus = "0",
+                            IntelligenceBonus = "2",
+                            Race = "Tieffelin",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "0",
+                            WisdomBonus = "1"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CharismsBonus = "0",
+                            ConstitutionBonus = "0",
+                            DexterityBonus = "2",
+                            IntelligenceBonus = "0",
+                            Race = "Elfe Noire",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "0",
+                            WisdomBonus = "0"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CharismsBonus = "0",
+                            ConstitutionBonus = "0",
+                            DexterityBonus = "2",
+                            IntelligenceBonus = "0",
+                            Race = "Elfe des Montagnes",
+                            Size = "M",
+                            SourceId = 1,
+                            Speed = "9m/round",
+                            StrenghtBonus = "0",
+                            WisdomBonus = "0"
+                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Roles", b =>
@@ -1353,33 +1750,33 @@ namespace LaboFinalAPIDAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RolesId")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RolesId");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundSkills", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Backgrounds", "Backgrounds")
+                    b.HasOne("LaboFinalAPIDomain.Models.Backgrounds", "Background")
                         .WithMany()
-                        .HasForeignKey("BackgroundsId")
+                        .HasForeignKey("BackgroundId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Skills", "Skills")
+                    b.HasOne("LaboFinalAPIDomain.Models.Skills", "Skill")
                         .WithMany()
-                        .HasForeignKey("SkillsId")
+                        .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Backgrounds");
+                    b.Navigation("Background");
 
-                    b.Navigation("Skills");
+                    b.Navigation("Skill");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Backgrounds", b =>
@@ -1395,21 +1792,21 @@ namespace LaboFinalAPIDAL.Migrations
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.ClassSkills", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Classes", "Classes")
+                    b.HasOne("LaboFinalAPIDomain.Models.Classes", "Class")
                         .WithMany()
-                        .HasForeignKey("ClassesId")
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Skills", "Skills")
+                    b.HasOne("LaboFinalAPIDomain.Models.Skills", "Skill")
                         .WithMany()
-                        .HasForeignKey("SkillsId")
+                        .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Classes");
+                    b.Navigation("Class");
 
-                    b.Navigation("Skills");
+                    b.Navigation("Skill");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Classes", b =>
@@ -1431,19 +1828,19 @@ namespace LaboFinalAPIDAL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Backgrounds", "Backgrounds")
+                    b.HasOne("LaboFinalAPIDomain.Models.Backgrounds", "Background")
                         .WithMany()
                         .HasForeignKey("BackgroundId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Classes", "Classes")
+                    b.HasOne("LaboFinalAPIDomain.Models.Classes", "Class")
                         .WithMany()
-                        .HasForeignKey("ClasseId")
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Races", "Races")
+                    b.HasOne("LaboFinalAPIDomain.Models.Races", "Race")
                         .WithMany()
                         .HasForeignKey("RaceId")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -1467,7 +1864,7 @@ namespace LaboFinalAPIDAL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Users", "Users")
+                    b.HasOne("LaboFinalAPIDomain.Models.Users", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1487,11 +1884,11 @@ namespace LaboFinalAPIDAL.Migrations
 
                     b.Navigation("Armor");
 
-                    b.Navigation("Backgrounds");
+                    b.Navigation("Background");
 
-                    b.Navigation("Classes");
+                    b.Navigation("Class");
 
-                    b.Navigation("Races");
+                    b.Navigation("Race");
 
                     b.Navigation("Shield");
 
@@ -1499,7 +1896,7 @@ namespace LaboFinalAPIDAL.Migrations
 
                     b.Navigation("ToolTwo");
 
-                    b.Navigation("Users");
+                    b.Navigation("User");
 
                     b.Navigation("WeaponOne");
 
@@ -1508,21 +1905,21 @@ namespace LaboFinalAPIDAL.Migrations
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.EntitySkills", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Entities", "Entities")
+                    b.HasOne("LaboFinalAPIDomain.Models.Entities", "Entity")
                         .WithMany()
-                        .HasForeignKey("EntitiesId")
+                        .HasForeignKey("EntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Skills", "Skills")
+                    b.HasOne("LaboFinalAPIDomain.Models.Skills", "Skill")
                         .WithMany()
-                        .HasForeignKey("SkillsId")
+                        .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Entities");
+                    b.Navigation("Entity");
 
-                    b.Navigation("Skills");
+                    b.Navigation("Skill");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Feats", b =>
@@ -1538,49 +1935,49 @@ namespace LaboFinalAPIDAL.Migrations
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Inventories", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Entities", "Entities")
+                    b.HasOne("LaboFinalAPIDomain.Models.Entities", "Entitie")
                         .WithMany()
-                        .HasForeignKey("EntitiesId")
+                        .HasForeignKey("EntitieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Items", "Items")
+                    b.HasOne("LaboFinalAPIDomain.Models.Items", "Item")
                         .WithMany()
-                        .HasForeignKey("ItemsId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Entities");
+                    b.Navigation("Entitie");
 
-                    b.Navigation("Items");
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Items", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.TypesItems", "TypesItems")
+                    b.HasOne("LaboFinalAPIDomain.Models.TypesItems", "TypeItem")
                         .WithMany()
-                        .HasForeignKey("TypesItemsId");
+                        .HasForeignKey("TypeItemId");
 
-                    b.Navigation("TypesItems");
+                    b.Navigation("TypeItem");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.RaceLanguages", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Languages", "Languages")
+                    b.HasOne("LaboFinalAPIDomain.Models.Languages", "Language")
                         .WithMany()
-                        .HasForeignKey("LanguagesId")
+                        .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LaboFinalAPIDomain.Models.Races", "Races")
+                    b.HasOne("LaboFinalAPIDomain.Models.Races", "Race")
                         .WithMany()
-                        .HasForeignKey("RacesId")
+                        .HasForeignKey("RaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Languages");
+                    b.Navigation("Language");
 
-                    b.Navigation("Races");
+                    b.Navigation("Race");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Races", b =>
@@ -1607,13 +2004,13 @@ namespace LaboFinalAPIDAL.Migrations
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Users", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Roles", "Roles")
+                    b.HasOne("LaboFinalAPIDomain.Models.Roles", "Role")
                         .WithMany()
-                        .HasForeignKey("RolesId")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Roles");
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

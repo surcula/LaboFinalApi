@@ -9,7 +9,9 @@ namespace LaboFinalAPIDomain.Models
     public class RaceLanguages
     {
         public int Id { get; set; }
-        public Languages Languages { get; set; }
-        public Races Races { get; set; }
+        public int LanguageId { get; set; }
+        public Languages Language { get; set; }
+        public int RaceId { get; set; }
+        public Races Race { get; set; }
     }
 }

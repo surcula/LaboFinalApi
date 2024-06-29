@@ -9,7 +9,7 @@ namespace LaboFinalAPIDomain.Models
     public class Inventories
     {
         public int Id { get; set; }
-        public Items Items { get; set; }
-        public Entities Entities { get; set; }
+        public Items Item { get; set; }
+        public Entities Entitie { get; set; }
     }
 }

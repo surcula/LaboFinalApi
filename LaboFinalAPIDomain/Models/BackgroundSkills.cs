@@ -9,7 +9,7 @@ namespace LaboFinalAPIDomain.Models
     public class BackgroundSkills
     {
         public int Id { get; set; }
-        public Skills Skills { get; set; }
-        public Backgrounds Backgrounds { get; set; }
+        public Skills Skill { get; set; }
+        public Backgrounds Background { get; set; }
     }
 }

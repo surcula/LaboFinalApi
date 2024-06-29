@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Configurations
 {
-    public class FeatsConfig : IEntityTypeConfiguration<Feats>
+    internal class FeatsConfig : IEntityTypeConfiguration<Feats>
     {
         public void Configure(EntityTypeBuilder<Feats> builder)
         {

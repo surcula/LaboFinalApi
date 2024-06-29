@@ -27,24 +27,24 @@ namespace LaboFinalAPIDAL.Configurations
             builder.Property(e => e.Allies).IsRequired();
             builder.Property(e => e.AdditionalFeatures).IsRequired();
 
-            builder.HasOne(e => e.Users)
+            builder.HasOne(e => e.User)
                         .WithMany()
                                     .HasForeignKey(e => e.UserId)
                                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(e => e.Backgrounds)
+            builder.HasOne(e => e.Background)
                 .WithMany()
                         .HasForeignKey(e => e.BackgroundId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(e => e.Races)
+            builder.HasOne(e => e.Race)
                 .WithMany()
                 .HasForeignKey(e => e.RaceId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(e => e.Classes)
+            builder.HasOne(e => e.Class)
                 .WithMany()
-                .HasForeignKey(e => e.ClasseId)
+                .HasForeignKey(e => e.ClassId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(e => e.Armor)

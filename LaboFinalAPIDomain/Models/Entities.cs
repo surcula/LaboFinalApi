@@ -10,13 +10,13 @@ namespace LaboFinalAPIDomain.Models
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public Users Users { get; set; }
+        public Users User { get; set; }
         public int BackgroundId { get; set; }
-        public Backgrounds Backgrounds { get; set; }
+        public Backgrounds Background { get; set; }
         public int RaceId { get; set; }
-        public Races Races { get; set; }
-        public int ClasseId { get; set; }
-        public Classes Classes { get; set; }
+        public Races Race { get; set; }
+        public int ClassId { get; set; }
+        public Classes Class { get; set; }
         public int ArmorId { get; set; }
         public Items Armor { get; set; }
         public int ShieldId { get; set; }

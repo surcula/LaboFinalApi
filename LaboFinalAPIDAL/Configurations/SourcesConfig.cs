@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Configurations
 {
-    public class SourcesConfig : IEntityTypeConfiguration<Sources>
+    internal class SourcesConfig : IEntityTypeConfiguration<Sources>
     {
         public void Configure(EntityTypeBuilder<Sources> builder)
         {

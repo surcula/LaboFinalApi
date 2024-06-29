@@ -1,4 +1,5 @@
-﻿using LaboFinalAPIDomain.Models;
+﻿using LaboFinalAPIBLL.Models;
+using LaboFinalAPIDomain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace LaboFinalAPIBLL.Interfaces.Services
 {
     public interface IRacesService
     {
-        IEnumerable<Races> GetAll();
+        IEnumerable<RaceComplete> GetAll();
     }
 }

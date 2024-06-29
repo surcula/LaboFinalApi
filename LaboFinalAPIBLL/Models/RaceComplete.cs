@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboFinalAPIBLL.Interfaces.Repositories
+namespace LaboFinalAPIBLL.Models
 {
-    public interface IRaceLanguagesRepository
+    public class RaceComplete
     {
-        IEnumerable<Languages> GetByRaceId(int raceId);
+        public Races Race { get; set; }
+        public IEnumerable<Languages> Languages { get; set; }
     }
 }

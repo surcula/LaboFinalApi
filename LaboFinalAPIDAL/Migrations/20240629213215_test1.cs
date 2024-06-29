@@ -7,7 +7,7 @@
 namespace LaboFinalAPIDAL.Migrations
 {
     /// <inheritdoc />
-    public partial class test5 : Migration
+    public partial class test1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,7 @@ namespace LaboFinalAPIDAL.Migrations
                 name: "Languages",
                 columns: table => new
                 {
-                        Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Language = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -84,16 +84,16 @@ namespace LaboFinalAPIDAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NickName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RolesId = table.Column<int>(type: "int", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Roles_RolesId",
-                        column: x => x.RolesId,
+                        name: "FK_Users_Roles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -109,14 +109,14 @@ namespace LaboFinalAPIDAL.Migrations
                     LanguageNumber = table.Column<int>(type: "int", nullable: false),
                     Feature = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FeatureDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    sourceId = table.Column<int>(type: "int", nullable: false)
+                    SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Backgrounds", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Backgrounds_Sources_sourceId",
-                        column: x => x.sourceId,
+                        name: "FK_Backgrounds_Sources_SourceId",
+                        column: x => x.SourceId,
                         principalTable: "Sources",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -136,14 +136,14 @@ namespace LaboFinalAPIDAL.Migrations
                     IntelligenceBonus = table.Column<int>(type: "int", nullable: false),
                     CharismaBonus = table.Column<int>(type: "int", nullable: false),
                     DV = table.Column<int>(type: "int", nullable: false),
-                    sourceId = table.Column<int>(type: "int", nullable: false)
+                    SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Classes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Classes_Sources_sourceId",
-                        column: x => x.sourceId,
+                        name: "FK_Classes_Sources_SourceId",
+                        column: x => x.SourceId,
                         principalTable: "Sources",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -158,14 +158,14 @@ namespace LaboFinalAPIDAL.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Prerequisite = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    sourceId = table.Column<int>(type: "int", nullable: false)
+                    SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Feats", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Feats_Sources_sourceId",
-                        column: x => x.sourceId,
+                        name: "FK_Feats_Sources_SourceId",
+                        column: x => x.SourceId,
                         principalTable: "Sources",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -185,15 +185,15 @@ namespace LaboFinalAPIDAL.Migrations
                     IntelligenceBonus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CharismsBonus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Speed = table.Column<int>(type: "int", nullable: false),
-                    sourceId = table.Column<int>(type: "int", nullable: false)
+                    Speed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Races", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Races_Sources_sourceId",
-                        column: x => x.sourceId,
+                        name: "FK_Races_Sources_SourceId",
+                        column: x => x.SourceId,
                         principalTable: "Sources",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -206,7 +206,7 @@ namespace LaboFinalAPIDAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    level = table.Column<int>(type: "int", nullable: false),
+                    Level = table.Column<int>(type: "int", nullable: false),
                     School = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Range = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Components = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -214,14 +214,14 @@ namespace LaboFinalAPIDAL.Migrations
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HigherLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    sourceId = table.Column<int>(type: "int", nullable: false)
+                    SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Spells", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Spells_Sources_sourceId",
-                        column: x => x.sourceId,
+                        name: "FK_Spells_Sources_SourceId",
+                        column: x => x.SourceId,
                         principalTable: "Sources",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -240,14 +240,14 @@ namespace LaboFinalAPIDAL.Migrations
                     DiceType = table.Column<int>(type: "int", nullable: true),
                     DiceNumber = table.Column<int>(type: "int", nullable: true),
                     TypeId = table.Column<int>(type: "int", nullable: true),
-                    TypesItemsId = table.Column<int>(type: "int", nullable: true)
+                    TypeItemId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Items", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Items_TypesItems_TypesItemsId",
-                        column: x => x.TypesItemsId,
+                        name: "FK_Items_TypesItems_TypeItemId",
+                        column: x => x.TypeItemId,
                         principalTable: "TypesItems",
                         principalColumn: "Id");
                 });
@@ -258,21 +258,21 @@ namespace LaboFinalAPIDAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SkillsId = table.Column<int>(type: "int", nullable: false),
-                    BackgroundsId = table.Column<int>(type: "int", nullable: false)
+                    SkillId = table.Column<int>(type: "int", nullable: false),
+                    BackgroundId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BackgroundSkills", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BackgroundSkills_Backgrounds_BackgroundsId",
-                        column: x => x.BackgroundsId,
+                        name: "FK_BackgroundSkills_Backgrounds_BackgroundId",
+                        column: x => x.BackgroundId,
                         principalTable: "Backgrounds",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BackgroundSkills_Skills_SkillsId",
-                        column: x => x.SkillsId,
+                        name: "FK_BackgroundSkills_Skills_SkillId",
+                        column: x => x.SkillId,
                         principalTable: "Skills",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -284,21 +284,21 @@ namespace LaboFinalAPIDAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SkillsId = table.Column<int>(type: "int", nullable: false),
-                    ClassesId = table.Column<int>(type: "int", nullable: false)
+                    SkillId = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ClassSkills", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClassSkills_Classes_ClassesId",
-                        column: x => x.ClassesId,
+                        name: "FK_ClassSkills_Classes_ClassId",
+                        column: x => x.ClassId,
                         principalTable: "Classes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClassSkills_Skills_SkillsId",
-                        column: x => x.SkillsId,
+                        name: "FK_ClassSkills_Skills_SkillId",
+                        column: x => x.SkillId,
                         principalTable: "Skills",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -310,21 +310,21 @@ namespace LaboFinalAPIDAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LanguagesId = table.Column<int>(type: "int", nullable: false),
-                    RacesId = table.Column<int>(type: "int", nullable: false)
+                    LanguageId = table.Column<int>(type: "int", nullable: false),
+                    RaceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RaceLanguages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RaceLanguages_Languages_LanguagesId",
-                        column: x => x.LanguagesId,
+                        name: "FK_RaceLanguages_Languages_LanguageId",
+                        column: x => x.LanguageId,
                         principalTable: "Languages",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RaceLanguages_Races_RacesId",
-                        column: x => x.RacesId,
+                        name: "FK_RaceLanguages_Races_RaceId",
+                        column: x => x.RaceId,
                         principalTable: "Races",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -339,7 +339,7 @@ namespace LaboFinalAPIDAL.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false),
                     BackgroundId = table.Column<int>(type: "int", nullable: false),
                     RaceId = table.Column<int>(type: "int", nullable: false),
-                    ClasseId = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false),
                     ArmorId = table.Column<int>(type: "int", nullable: false),
                     ShieldId = table.Column<int>(type: "int", nullable: false),
                     WeaponOneId = table.Column<int>(type: "int", nullable: false),
@@ -385,8 +385,8 @@ namespace LaboFinalAPIDAL.Migrations
                         principalTable: "Backgrounds",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Entities_Classes_ClasseId",
-                        column: x => x.ClasseId,
+                        name: "FK_Entities_Classes_ClassId",
+                        column: x => x.ClassId,
                         principalTable: "Classes",
                         principalColumn: "Id");
                     table.ForeignKey(
@@ -438,22 +438,22 @@ namespace LaboFinalAPIDAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SkillsId = table.Column<int>(type: "int", nullable: false),
-                    EntitiesId = table.Column<int>(type: "int", nullable: false),
+                    SkillId = table.Column<int>(type: "int", nullable: false),
+                    EntityId = table.Column<int>(type: "int", nullable: false),
                     Bonus = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_entitySkills", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_entitySkills_Entities_EntitiesId",
-                        column: x => x.EntitiesId,
+                        name: "FK_entitySkills_Entities_EntityId",
+                        column: x => x.EntityId,
                         principalTable: "Entities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_entitySkills_Skills_SkillsId",
-                        column: x => x.SkillsId,
+                        name: "FK_entitySkills_Skills_SkillId",
+                        column: x => x.SkillId,
                         principalTable: "Skills",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -465,24 +465,73 @@ namespace LaboFinalAPIDAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ItemsId = table.Column<int>(type: "int", nullable: false),
-                    EntitiesId = table.Column<int>(type: "int", nullable: false)
+                    ItemId = table.Column<int>(type: "int", nullable: false),
+                    EntitieId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_inventories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_inventories_Entities_EntitiesId",
-                        column: x => x.EntitiesId,
+                        name: "FK_inventories_Entities_EntitieId",
+                        column: x => x.EntitieId,
                         principalTable: "Entities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_inventories_Items_ItemsId",
-                        column: x => x.ItemsId,
+                        name: "FK_inventories_Items_ItemId",
+                        column: x => x.ItemId,
                         principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Languages",
+                columns: new[] { "Id", "Language" },
+                values: new object[,]
+                {
+                    { 1, "Commun" },
+                    { 2, "Nain" },
+                    { 3, "Elfe" },
+                    { 4, "Gnome" },
+                    { 5, "Halfelin" },
+                    { 6, "Orque" },
+                    { 7, "Abyssal" },
+                    { 8, "Céleste" },
+                    { 9, "Commun des profondeurs" },
+                    { 10, "Draconique" },
+                    { 11, "Infernal" },
+                    { 12, "Primordial" },
+                    { 13, "Sylvestre" },
+                    { 14, "Squelettique" },
+                    { 15, "Ignan" },
+                    { 16, "Terran" },
+                    { 17, "Aquatique" },
+                    { 18, "Auran" },
+                    { 19, "Géant" },
+                    { 20, "Gobelin" },
+                    { 21, "Gnoll" },
+                    { 22, "Halfling" },
+                    { 23, "Orc" },
+                    { 24, "Profond" },
+                    { 25, "Chaque" },
+                    { 26, "Mortel" },
+                    { 27, "Mouvement" },
+                    { 28, "Liaison" },
+                    { 29, "Ces" },
+                    { 30, "Ici" },
+                    { 31, "Mortelle" },
+                    { 32, "Moustique" },
+                    { 33, "L'Argile" },
+                    { 34, "Monde" },
+                    { 35, "Merveilles" },
+                    { 36, "Messager" },
+                    { 37, "Aujourd'hui" },
+                    { 38, "Peut" },
+                    { 39, "Les" },
+                    { 40, "L'Immonde" },
+                    { 41, "Meuble" },
+                    { 42, "Migale" }
                 });
 
             migrationBuilder.InsertData(
@@ -502,7 +551,7 @@ namespace LaboFinalAPIDAL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Feats",
-                columns: new[] { "Id", "Description", "Name", "Prerequisite", "sourceId" },
+                columns: new[] { "Id", "Description", "Name", "Prerequisite", "SourceId" },
                 values: new object[,]
                 {
                     { 1, "Vous gagnez +1 en Charisme, jusqu'à un maximum de 20. Vous avez l'avantage sur les jets de Charisme (tromperie) et Charisme (représentation) lorsque vous tentez d'endosser une autre identité. Vous pouvez imiter la voix d'autres personnes ou des sons produits par d'autres créatures.", "Actor", "Aucun", 1 },
@@ -546,38 +595,111 @@ namespace LaboFinalAPIDAL.Migrations
                     { 39, "Augmentez votre Force ou Constitution de 1, jusqu'à un maximum de 20. Vous êtes compétent avec les armes improvisées et vos attaques à mains nues infligent des dégâts contondants égaux à 1d4 + votre modificateur de Force. Lorsque vous frappez une créature avec une attaque à mains nues ou une arme improvisée pendant votre tour, vous pouvez utiliser une action bonus pour tenter d'agripper la cible.", "Tavern Brawler", "Aucun", 1 },
                     { 40, "Votre maximum de points de vie augmente de 2 pour chaque niveau que vous avez, et de 2 pour chaque niveau que vous gagnez par la suite.", "Tough", "Aucun", 1 },
                     { 41, "Vous avez l'avantage sur les jets de sauvegarde de Constitution pour maintenir votre concentration sur un sort lorsque vous subissez des dégâts. Vous pouvez effectuer des composantes somatiques de sorts même si vous avez des armes ou un bouclier dans une ou les deux mains. Lorsque vous provoquez une attaque d'opportunité, vous pouvez lancer un sort au lieu d'une attaque de mêlée.", "War Caster", "Capacité à lancer au moins un sort", 1 },
-                    { 42, "Augmentez votre Force ou Dextérité de 1, jusqu'à un maximum de 20. Vous gagnez la compétence dans quatre armes au choix.", "Weapon Master", "Aucun", 1 }
+                    { 42, "Augmentez votre Force ou Dextérité de 1, jusqu'à un maximum de 20. Vous gagnez la compétence dans quatre armes au choix.", "Weapon Master", "Aucun", 1 },
+                    { 43, "Choisissez une école de magie. Vous apprenez deux sorts de niveau 1 de cette école. Vous pouvez les lancer sans utiliser de composantes matérielles. Vous gagnez une récupération partielle des emplacements de sorts utilisés.", "Adepte des arcanes", "Classe de lanceur de sorts", 2 },
+                    { 44, "Vous apprenez deux manœuvres au choix parmi celles disponibles pour l'archétype Martial du guerrier. Vous gagnez une d6 de supériorité pour les manœuvres.", "Apprenti Martial", "Aucun", 2 },
+                    { 45, "Lorsque vous effectuez une action pour aider un allié, la portée de cette action est de 30 pieds. Vous pouvez utiliser votre réaction pour accorder un bonus d'attaque ou de CA à un allié dans un rayon de 30 pieds.", "Chef de bande", "Charisme 13 ou plus", 2 },
+                    { 46, "Lorsque vous utilisez un kit de soins, la créature regagne des points de vie supplémentaires égaux à 1d6 + 4 + son nombre de dés de vie.", "Guérisseur", "Aucun", 2 },
+                    { 47, "Vous avez l'avantage sur les jets de Sagesse (Survie) pour suivre les créatures et les jets de Constitution pour éviter les épuisements dus aux voyages sur de longues distances.", "Marcheur des bois", "Aucun", 2 },
+                    { 48, "Vous pouvez essayer de vous cacher même lorsque vous êtes légèrement obscurci par des feuillages, de la neige, de la pluie ou d'autres phénomènes naturels.", "Maître du camouflage", "Aucun", 2 },
+                    { 49, "Vous pouvez copier un sort dans votre livre de sorts en moitié moins de temps et en utilisant moitié moins de ressources.", "Maître des livres de sorts", "Intelligence 13 ou plus", 2 },
+                    { 50, "Vous apprenez deux sorts de l'école de magie de l'abjuration ou de la divination. Vous pouvez les lancer sans utiliser de composantes matérielles.", "Percepteur des arcanes", "Intelligence 13 ou plus", 2 },
+                    { 51, "Vous avez l'avantage sur les jets pour rester en selle. Si votre monture est forcée de faire un jet de sauvegarde pour éviter des effets, elle subit seulement la moitié des dégâts en cas de réussite.", "Pilote de monture", "Aucun", 2 },
+                    { 52, "Vous pouvez vous déplacer à votre vitesse normale à travers une foule. Vous avez l'avantage sur les jets de Sagesse (Perception) et d'Intelligence (Investigation) pour trouver des individus ou des objets cachés en milieu urbain.", "Rodeur urbain", "Aucun", 2 },
+                    { 53, "Lorsque vous lancez un sort nécessitant un jet d'attaque, la portée du sort est doublée. Vos attaques de sort ignorent la demi-couverture et les trois quarts de couverture.", "Sniper de sort", "Capacité à lancer au moins un sort", 2 },
+                    { 54, "Vous n'avez pas de désavantage sur les jets d'attaque à distance à longue portée. Vos attaques à distance ignorent la couverture à moitié et les trois quarts. Avant de faire une attaque à distance, vous pouvez choisir de prendre un malus de -5 au jet d'attaque. Si l'attaque touche, vous ajoutez +10 aux dégâts de l'attaque.", "Tireur d'élite", "Aucun", 2 },
+                    { 55, "Vous apprenez deux sorts de votre liste de sorts. Vous pouvez les lancer sans utiliser de composantes matérielles. Vous pouvez également les lancer une fois chacun sans utiliser de slots de sorts.", "Virtuose des arcanes", "Capacité à lancer au moins un sort", 2 },
+                    { 56, "Vous apprenez un tour de magie de la liste de sorts de l'artificier. Vous apprenez également deux sorts de 1er niveau de la liste de sorts de l'artificier. Vous pouvez lancer chacun de ces sorts une fois sans utiliser d'emplacement de sort. Vous récupérez la capacité de le faire lorsque vous terminez un repos long.", "Artificier initié", "Aucun", 3 },
+                    { 57, "Vous gagnez une compétence avec les armes de guerre et une compétence avec un bouclier. Vous gagnez également une attaque supplémentaire avec une arme de guerre ou un bouclier.", "Initiation au combat rapproché", "Aucun", 3 },
+                    { 58, "Lorsque vous lancez un sort de métamorphose de 1er niveau ou plus qui cible une créature amie, vous pouvez cibler une deuxième créature amie dans la portée du sort avec le même sort.", "Adepte des métamorphoses", "Aucun", 3 },
+                    { 59, "Vous gagnez une compétence dans une arme au choix et une compétence dans une armure légère ou moyenne.", "Érudition martiale", "Aucun", 3 },
+                    { 60, "Vous gagnez la compétence dans la compétence Survie. Vous avez l'avantage sur les jets de survie pour suivre les créatures et trouver de la nourriture et de l'eau dans la nature.", "Expert en survie", "Aucun", 3 },
+                    { 61, "Vous apprenez la recette de trois potions de guérison et pouvez les créer pendant un repos long en utilisant des composants alchimiques.", "Initiation à l'alchimie", "Aucun", 3 },
+                    { 62, "Vous gagnez une compétence avec les arcs longs et les arcs courts. Vous pouvez ignorer les pénalités de désavantage pour attaquer à longue portée avec ces armes.", "Initiation au tir à l'arc", "Aucun", 3 },
+                    { 63, "Lorsque vous utilisez une baguette, un bâton ou un sceptre pour lancer un sort, vous pouvez augmenter le DD de sauvegarde du sort de 1.", "Adepte en manipulation magique", "Aucun", 3 },
+                    { 64, "Lorsque vous protégez une créature amie avec votre bouclier, la créature gagne un bonus de +1 à la CA et vous avez l'avantage sur les jets de sauvegarde pour éviter d'être déplacé ou renversé.", "Défenseur des faibles", "Aucun", 3 },
+                    { 65, "Vous apprenez deux sorts de la liste de sorts de l'école de l'illusion ou de la nécromancie. Vous pouvez les lancer sans utiliser de composantes matérielles.", "Sorcier de l'ombre", "Aucun", 3 },
+                    { 66, "Vous pouvez créer une potion de guérison pendant un repos court en utilisant des composants alchimiques. Vous pouvez également identifier les potions en les goûtant.", "Maître des potions", "Aucun", 3 },
+                    { 67, "Vous apprenez deux sorts de l'école de l'invocation. Vous pouvez les lancer sans utiliser de composantes matérielles.", "Initiation à l'invocation", "Aucun", 3 },
+                    { 68, "Vous gagnez la compétence avec les armures intermédiaires et lourdes. Lorsque vous portez une armure intermédiaire ou lourde, vous pouvez ajouter 1 à la CA.", "Expert en armures", "Aucun", 3 },
+                    { 69, "Vous gagnez la compétence avec les armes de guerre. Vous pouvez choisir deux armes de guerre et vous gagnez un bonus de +1 aux jets d'attaque et de dégâts avec ces armes.", "Expert en armes", "Aucun", 3 },
+                    { 70, "Vous apprenez un tour de magie de la liste de sorts de l'ensorceleur, du magicien ou du sorcier. Vous pouvez également lancer un sort de niveau 1 de ces listes de sorts une fois sans utiliser d'emplacement de sort. Vous récupérez la capacité de le faire lorsque vous terminez un repos long.", "Initiation au combat magique", "Aucun", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Races",
+                columns: new[] { "Id", "CharismsBonus", "ConstitutionBonus", "DexterityBonus", "IntelligenceBonus", "Race", "Size", "SourceId", "Speed", "StrenghtBonus", "WisdomBonus" },
+                values: new object[,]
+                {
+                    { 1, "1", "1", "1", "1", "Humain", "M", 1, "9m/round", "1", "1" },
+                    { 2, "0", "0", "2", "1", "Haut-elfe", "M", 1, "9m/round", "0", "0" },
+                    { 3, "0", "0", "0", "0", "Humain (Don)", "M", 1, "9m/round", "0", "0" },
+                    { 4, "0", "2", "0", "0", "Nain", "M", 1, "7m/round", "2", "0" },
+                    { 5, "0", "0", "0", "2", "Gnome", "P", 1, "7m/round", "0", "0" },
+                    { 6, "-1", "1", "0", "-2", "Demi-Orc", "M", 1, "9m/round", "2", "0" },
+                    { 7, "1", "0", "0", "2", "Tieffelin", "M", 1, "9m/round", "0", "1" },
+                    { 8, "0", "0", "2", "0", "Elfe Noire", "M", 1, "9m/round", "0", "0" },
+                    { 9, "0", "0", "2", "0", "Elfe des Montagnes", "M", 1, "9m/round", "0", "0" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Spells",
+                columns: new[] { "Id", "CastingTime", "Components", "Description", "Duration", "HigherLevel", "Level", "Name", "Range", "School", "SourceId" },
+                values: new object[,]
+                {
+                    { 1, "1 action", "V, S, M", "Un trait lumineux jaillit de votre doigt pointé vers un point que vous choisissez dans la portée, puis éclate avec un rugissement en une explosion de flammes.", "Instantanée", "Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 4 ou plus, les dégâts augmentent de 1d6 pour chaque niveau d'emplacement au-dessus du niveau 3.", 3, "Boule de Feu", "45 mètres", "Évocation", 1 },
+                    { 2, "1 action", "V, S", "Vous créez trois projectiles lumineux de force magique. Chaque projectile touche une créature de votre choix que vous pouvez voir dans la portée.", "Instantanée", "Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou plus, le sort crée un projectile supplémentaire pour chaque niveau d'emplacement au-dessus du niveau 1.", 1, "Projectile Magique", "36 mètres", "Évocation", 1 },
+                    { 3, "1 action bonus", "V", "Une créature de votre choix que vous pouvez voir dans la portée regagne un nombre de points de vie égal à 1d4 + votre modificateur de capacité de lancement de sorts.", "Instantanée", "Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou plus, la guérison augmente de 1d4 pour chaque niveau d'emplacement au-dessus du niveau 1.", 1, "Mot de Guérison", "18 mètres", "Évocation", 2 },
+                    { 4, "1 réaction, que vous prenez lorsque vous êtes touché par une attaque ou ciblé par le sort projectile magique", "V, S", "Une barrière invisible de force magique apparaît et vous protège. Jusqu'au début de votre prochain tour, vous avez un bonus de +5 à la CA, y compris contre l'attaque déclenchant, et vous ne subissez aucun dégât de projectile magique.", "1 round", "", 1, "Bouclier", "Personnelle", "Abjuration", 2 },
+                    { 5, "1 action", "V, S, M", "Un éclair de lumière jaillit de vos doigts tendus pour frapper une cible que vous pouvez voir dans la portée. La cible doit réussir un jet de sauvegarde de Dextérité, sinon elle subit 8d6 points de dégâts de foudre, ou la moitié des dégâts en cas de succès.", "Instantanée", "Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 4 ou plus, les dégâts augmentent de 1d6 pour chaque niveau d'emplacement au-dessus du niveau 3.", 3, "Éclair", "30 mètres", "Évocation", 1 },
+                    { 6, "1 action", "V, S", "Une main spectrale flottante apparaît à un point que vous choisissez dans la portée. La main reste pour la durée ou jusqu'à ce que vous la congédiez par une action. La main peut manipuler un objet, ouvrir une porte ou un contenant, ranger ou récupérer un objet dans un conteneur ouvert, ou verser le contenu d'une fiole.", "1 minute", "", 0, "Main de Mage", "9 mètres", "Transmutation", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RaceLanguages",
+                columns: new[] { "Id", "LanguageId", "RaceId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 3, 2 },
+                    { 3, 2, 3 },
+                    { 4, 2, 4 },
+                    { 5, 4, 5 },
+                    { 6, 23, 6 },
+                    { 7, 15, 7 },
+                    { 8, 3, 8 },
+                    { 9, 3, 9 }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Backgrounds_sourceId",
+                name: "IX_Backgrounds_SourceId",
                 table: "Backgrounds",
-                column: "sourceId");
+                column: "SourceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BackgroundSkills_BackgroundsId",
+                name: "IX_BackgroundSkills_BackgroundId",
                 table: "BackgroundSkills",
-                column: "BackgroundsId");
+                column: "BackgroundId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BackgroundSkills_SkillsId",
+                name: "IX_BackgroundSkills_SkillId",
                 table: "BackgroundSkills",
-                column: "SkillsId");
+                column: "SkillId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classes_sourceId",
+                name: "IX_Classes_SourceId",
                 table: "Classes",
-                column: "sourceId");
+                column: "SourceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClassSkills_ClassesId",
+                name: "IX_ClassSkills_ClassId",
                 table: "ClassSkills",
-                column: "ClassesId");
+                column: "ClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClassSkills_SkillsId",
+                name: "IX_ClassSkills_SkillId",
                 table: "ClassSkills",
-                column: "SkillsId");
+                column: "SkillId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entities_ArmorId",
@@ -590,9 +712,9 @@ namespace LaboFinalAPIDAL.Migrations
                 column: "BackgroundId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Entities_ClasseId",
+                name: "IX_Entities_ClassId",
                 table: "Entities",
-                column: "ClasseId");
+                column: "ClassId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entities_RaceId",
@@ -630,59 +752,59 @@ namespace LaboFinalAPIDAL.Migrations
                 column: "WeaponTwoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_entitySkills_EntitiesId",
+                name: "IX_entitySkills_EntityId",
                 table: "entitySkills",
-                column: "EntitiesId");
+                column: "EntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_entitySkills_SkillsId",
+                name: "IX_entitySkills_SkillId",
                 table: "entitySkills",
-                column: "SkillsId");
+                column: "SkillId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Feats_sourceId",
+                name: "IX_Feats_SourceId",
                 table: "Feats",
-                column: "sourceId");
+                column: "SourceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_inventories_EntitiesId",
+                name: "IX_inventories_EntitieId",
                 table: "inventories",
-                column: "EntitiesId");
+                column: "EntitieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_inventories_ItemsId",
+                name: "IX_inventories_ItemId",
                 table: "inventories",
-                column: "ItemsId");
+                column: "ItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_TypesItemsId",
+                name: "IX_Items_TypeItemId",
                 table: "Items",
-                column: "TypesItemsId");
+                column: "TypeItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RaceLanguages_LanguagesId",
+                name: "IX_RaceLanguages_LanguageId",
                 table: "RaceLanguages",
-                column: "LanguagesId");
+                column: "LanguageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RaceLanguages_RacesId",
+                name: "IX_RaceLanguages_RaceId",
                 table: "RaceLanguages",
-                column: "RacesId");
+                column: "RaceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Races_sourceId",
+                name: "IX_Races_SourceId",
                 table: "Races",
-                column: "sourceId");
+                column: "SourceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Spells_sourceId",
+                name: "IX_Spells_SourceId",
                 table: "Spells",
-                column: "sourceId");
+                column: "SourceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_RolesId",
+                name: "IX_Users_RoleId",
                 table: "Users",
-                column: "RolesId");
+                column: "RoleId");
         }
 
         /// <inheritdoc />
