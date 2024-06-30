@@ -11,6 +11,11 @@ namespace LaboFinalAPIDAL.Repositories
 {
     public class RaceLanguageRepo(DDBContext dDBContext) : IRaceLanguagesRepository
     {
+        /// <summary>
+        /// Retrieves languages associated with a specific race.
+        /// </summary>
+        /// <param name="raceId">The ID of the race.</param>
+        /// <returns>An enumerable collection of languages.</returns>
         public IEnumerable<Languages> GetByRaceId(int raceId)
         {
             using (DDBContext context = new DDBContext())

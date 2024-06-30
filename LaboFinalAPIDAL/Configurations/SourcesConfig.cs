@@ -22,6 +22,11 @@ namespace LaboFinalAPIDAL.Configurations
                 new Sources {Id = 6, Source = "Settings"},
                 new Sources {Id = 7, Source = "Aventures"},
                 new Sources {Id = 8, Source = "Extra(divers)"},
+                new Sources {Id = 9, Source = "Monsters of the Multiverse"},
+                new Sources {Id = 10, Source = "Van Richten's Guide Ravenloft"},
+                new Sources {Id = 11, Source = "Ereborn: Rising from the Last War"},
+                new Sources {Id = 12, Source = "Sword Coast Adventurer's Guide"},
+                new Sources {Id = 13, Source = "Strixhaven : A Curriculum of Chaos"},
                 ]);
         }
     }

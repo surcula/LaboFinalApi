@@ -38,13 +38,16 @@ namespace LaboFinalAPIDAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ClassesConfig());
+            modelBuilder.ApplyConfiguration(new ClassSkillConfig());
             modelBuilder.ApplyConfiguration(new EntitiesConfig());
-            modelBuilder.ApplyConfiguration(new SourcesConfig());
             modelBuilder.ApplyConfiguration(new FeatsConfig());
-            modelBuilder.ApplyConfiguration(new SpellsConfig());
-            modelBuilder.ApplyConfiguration(new LanguageConfig());
-            modelBuilder.ApplyConfiguration(new RaceConfig());
+            modelBuilder.ApplyConfiguration(new LanguagesConfig());
             modelBuilder.ApplyConfiguration(new RaceLanguageConfig());
+            modelBuilder.ApplyConfiguration(new RacesConfig());
+            modelBuilder.ApplyConfiguration(new SkillsConfig());
+            modelBuilder.ApplyConfiguration(new SourcesConfig());
+            modelBuilder.ApplyConfiguration(new SpellsConfig());
         }
     }
 }

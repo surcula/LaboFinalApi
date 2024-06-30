@@ -12,10 +12,9 @@ namespace LaboFinalAPIDAL.Repositories
     public class RaceRepo(DDBContext dDBContext) : IRacesRepository
     {
         /// <summary>
-        /// return all races
+        /// Retrieves all races from the database.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>An enumerable collection of races.</returns>
         public IEnumerable<Races> GetAll()
         {
             return dDBContext.Set<Races>();

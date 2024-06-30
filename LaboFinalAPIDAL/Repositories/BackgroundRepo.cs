@@ -10,6 +10,10 @@ namespace LaboFinalAPIDAL.Repositories
 {
     public class BackgroundRepo(DDBContext dDBContext) : IBackgroundRepository
     {
+        /// <summary>
+        /// Retrieves all backgrounds from the database.
+        /// </summary>
+        /// <returns>An enumerable collection of backgrounds.</returns>
         public IEnumerable<Backgrounds> GetAll()
         {
             return dDBContext.Set<Backgrounds>();

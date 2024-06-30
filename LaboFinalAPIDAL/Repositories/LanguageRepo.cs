@@ -10,6 +10,10 @@ namespace LaboFinalAPIDAL.Repositories
 {
     public class LanguageRepo(DDBContext dDBContext) : ILanguageRepository
     {
+        /// <summary>
+        /// Retrieves all languages from the database.
+        /// </summary>
+        /// <returns>An enumerable collection of languages.</returns>
         public IEnumerable<Languages> GetAll()
         {
             return dDBContext.Set<Languages>()

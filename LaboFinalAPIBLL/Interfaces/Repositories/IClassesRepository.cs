@@ -10,5 +10,7 @@ namespace LaboFinalAPIBLL.Interfaces.Repositories
     public interface IClassesRepository
     {
         IEnumerable<Classes> GetAll();
+        Classes GetById(int id);
     }
 }
+

@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Configurations
 {
-    internal class LanguageConfig : IEntityTypeConfiguration<Languages>
+    internal class LanguagesConfig : IEntityTypeConfiguration<Languages>
     {
         public void Configure(EntityTypeBuilder<Languages> builder)
         {
             builder.HasData([
                     new Languages { Id = 1, Language = "Commun" },
                 new Languages { Id = 2, Language = "Nain" },
-                new Languages { Id = 3, Language = "Elfe" },
+                new Languages { Id = 3, Language = "Elfique" },
                 new Languages { Id = 4, Language = "Gnome" },
                 new Languages { Id = 5, Language = "Halfelin" },
-                new Languages { Id = 6, Language = "Orque" },
+                new Languages { Id = 6, Language = "Orc" },
                 new Languages { Id = 7, Language = "Abyssal" },
                 new Languages { Id = 8, Language = "Céleste" },
                 new Languages { Id = 9, Language = "Commun des profondeurs" },

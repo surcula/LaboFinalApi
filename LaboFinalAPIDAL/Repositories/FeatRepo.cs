@@ -14,9 +14,9 @@ namespace LaboFinalAPIDAL.Repositories
     {
 
         /// <summary>
-        /// Return all feats
+        /// Retrieves all feats from the database.
         /// </summary>
-        /// <returns>list Feats</returns>
+        /// <returns>An enumerable collection of feats.</returns>
         public IEnumerable<Feats> GetAll()
         {
             return dbContext.Set<Feats>()

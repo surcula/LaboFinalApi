@@ -10,12 +10,12 @@ namespace LaboFinalAPIDomain.Models
     {
         public int Id { get; set; }
         public string Race { get; set; }
-        public string StrenghtBonus { get; set; }
-        public string DexterityBonus { get; set; }
-        public string ConstitutionBonus { get; set; }
-        public string WisdomBonus { get; set; }
-        public string IntelligenceBonus { get; set; }
-        public string CharismsBonus { get; set; }
+        public string StrenghtBonus { get; set; } = "0";
+        public string DexterityBonus { get; set; } = "0";
+        public string ConstitutionBonus { get; set; } = "0";
+        public string WisdomBonus { get; set; } = "0";
+        public string IntelligenceBonus { get; set; } = "0";
+        public string CharismsBonus { get; set; } = "0";
         public string Size { get; set; }
         public string Speed { get; set; }
         public int SourceId { get; set; }

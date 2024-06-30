@@ -4,6 +4,7 @@ using LaboFinalAPIDAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaboFinalAPIDAL.Migrations
 {
     [DbContext(typeof(DDBContext))]
-    partial class DDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240630210016_test4")]
+    partial class test4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,578 +102,6 @@ namespace LaboFinalAPIDAL.Migrations
                     b.HasIndex("SkillId");
 
                     b.ToTable("ClassSkills");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClassId = 1,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ClassId = 1,
-                            SkillId = 5
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClassId = 1,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ClassId = 1,
-                            SkillId = 12
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ClassId = 1,
-                            SkillId = 13
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ClassId = 1,
-                            SkillId = 17
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ClassId = 2,
-                            SkillId = 1
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ClassId = 2,
-                            SkillId = 2
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ClassId = 2,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ClassId = 2,
-                            SkillId = 4
-                        },
-                        new
-                        {
-                            Id = 11,
-                            ClassId = 2,
-                            SkillId = 5
-                        },
-                        new
-                        {
-                            Id = 12,
-                            ClassId = 2,
-                            SkillId = 6
-                        },
-                        new
-                        {
-                            Id = 13,
-                            ClassId = 2,
-                            SkillId = 7
-                        },
-                        new
-                        {
-                            Id = 14,
-                            ClassId = 2,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ClassId = 2,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 16,
-                            ClassId = 2,
-                            SkillId = 10
-                        },
-                        new
-                        {
-                            Id = 17,
-                            ClassId = 2,
-                            SkillId = 11
-                        },
-                        new
-                        {
-                            Id = 18,
-                            ClassId = 2,
-                            SkillId = 12
-                        },
-                        new
-                        {
-                            Id = 19,
-                            ClassId = 2,
-                            SkillId = 13
-                        },
-                        new
-                        {
-                            Id = 20,
-                            ClassId = 2,
-                            SkillId = 14
-                        },
-                        new
-                        {
-                            Id = 21,
-                            ClassId = 2,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 22,
-                            ClassId = 2,
-                            SkillId = 16
-                        },
-                        new
-                        {
-                            Id = 23,
-                            ClassId = 2,
-                            SkillId = 17
-                        },
-                        new
-                        {
-                            Id = 24,
-                            ClassId = 2,
-                            SkillId = 18
-                        },
-                        new
-                        {
-                            Id = 25,
-                            ClassId = 3,
-                            SkillId = 7
-                        },
-                        new
-                        {
-                            Id = 26,
-                            ClassId = 3,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 27,
-                            ClassId = 3,
-                            SkillId = 11
-                        },
-                        new
-                        {
-                            Id = 28,
-                            ClassId = 3,
-                            SkillId = 14
-                        },
-                        new
-                        {
-                            Id = 29,
-                            ClassId = 3,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 30,
-                            ClassId = 4,
-                            SkillId = 2
-                        },
-                        new
-                        {
-                            Id = 31,
-                            ClassId = 4,
-                            SkillId = 5
-                        },
-                        new
-                        {
-                            Id = 32,
-                            ClassId = 4,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 33,
-                            ClassId = 4,
-                            SkillId = 11
-                        },
-                        new
-                        {
-                            Id = 34,
-                            ClassId = 4,
-                            SkillId = 12
-                        },
-                        new
-                        {
-                            Id = 35,
-                            ClassId = 4,
-                            SkillId = 13
-                        },
-                        new
-                        {
-                            Id = 36,
-                            ClassId = 4,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 37,
-                            ClassId = 4,
-                            SkillId = 17
-                        },
-                        new
-                        {
-                            Id = 38,
-                            ClassId = 5,
-                            SkillId = 2
-                        },
-                        new
-                        {
-                            Id = 39,
-                            ClassId = 5,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 40,
-                            ClassId = 5,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 41,
-                            ClassId = 5,
-                            SkillId = 14
-                        },
-                        new
-                        {
-                            Id = 42,
-                            ClassId = 5,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 43,
-                            ClassId = 5,
-                            SkillId = 18
-                        },
-                        new
-                        {
-                            Id = 44,
-                            ClassId = 6,
-                            SkillId = 1
-                        },
-                        new
-                        {
-                            Id = 45,
-                            ClassId = 6,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 46,
-                            ClassId = 6,
-                            SkillId = 5
-                        },
-                        new
-                        {
-                            Id = 47,
-                            ClassId = 6,
-                            SkillId = 7
-                        },
-                        new
-                        {
-                            Id = 48,
-                            ClassId = 6,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 49,
-                            ClassId = 6,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 50,
-                            ClassId = 6,
-                            SkillId = 13
-                        },
-                        new
-                        {
-                            Id = 51,
-                            ClassId = 6,
-                            SkillId = 17
-                        },
-                        new
-                        {
-                            Id = 52,
-                            ClassId = 7,
-                            SkillId = 2
-                        },
-                        new
-                        {
-                            Id = 53,
-                            ClassId = 7,
-                            SkillId = 7
-                        },
-                        new
-                        {
-                            Id = 54,
-                            ClassId = 7,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 55,
-                            ClassId = 7,
-                            SkillId = 10
-                        },
-                        new
-                        {
-                            Id = 56,
-                            ClassId = 7,
-                            SkillId = 11
-                        },
-                        new
-                        {
-                            Id = 57,
-                            ClassId = 7,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 58,
-                            ClassId = 8,
-                            SkillId = 1
-                        },
-                        new
-                        {
-                            Id = 59,
-                            ClassId = 8,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 60,
-                            ClassId = 8,
-                            SkillId = 4
-                        },
-                        new
-                        {
-                            Id = 61,
-                            ClassId = 8,
-                            SkillId = 7
-                        },
-                        new
-                        {
-                            Id = 62,
-                            ClassId = 8,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 63,
-                            ClassId = 8,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 64,
-                            ClassId = 9,
-                            SkillId = 2
-                        },
-                        new
-                        {
-                            Id = 65,
-                            ClassId = 9,
-                            SkillId = 7
-                        },
-                        new
-                        {
-                            Id = 66,
-                            ClassId = 9,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 67,
-                            ClassId = 9,
-                            SkillId = 10
-                        },
-                        new
-                        {
-                            Id = 68,
-                            ClassId = 9,
-                            SkillId = 12
-                        },
-                        new
-                        {
-                            Id = 69,
-                            ClassId = 9,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 70,
-                            ClassId = 9,
-                            SkillId = 18
-                        },
-                        new
-                        {
-                            Id = 71,
-                            ClassId = 10,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 72,
-                            ClassId = 10,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 73,
-                            ClassId = 10,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 74,
-                            ClassId = 10,
-                            SkillId = 11
-                        },
-                        new
-                        {
-                            Id = 75,
-                            ClassId = 10,
-                            SkillId = 14
-                        },
-                        new
-                        {
-                            Id = 76,
-                            ClassId = 10,
-                            SkillId = 15
-                        },
-                        new
-                        {
-                            Id = 77,
-                            ClassId = 11,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 78,
-                            ClassId = 11,
-                            SkillId = 4
-                        },
-                        new
-                        {
-                            Id = 79,
-                            ClassId = 11,
-                            SkillId = 5
-                        },
-                        new
-                        {
-                            Id = 80,
-                            ClassId = 11,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 81,
-                            ClassId = 11,
-                            SkillId = 10
-                        },
-                        new
-                        {
-                            Id = 82,
-                            ClassId = 11,
-                            SkillId = 12
-                        },
-                        new
-                        {
-                            Id = 83,
-                            ClassId = 11,
-                            SkillId = 13
-                        },
-                        new
-                        {
-                            Id = 84,
-                            ClassId = 11,
-                            SkillId = 17
-                        },
-                        new
-                        {
-                            Id = 85,
-                            ClassId = 12,
-                            SkillId = 1
-                        },
-                        new
-                        {
-                            Id = 86,
-                            ClassId = 12,
-                            SkillId = 3
-                        },
-                        new
-                        {
-                            Id = 87,
-                            ClassId = 12,
-                            SkillId = 4
-                        },
-                        new
-                        {
-                            Id = 88,
-                            ClassId = 12,
-                            SkillId = 6
-                        },
-                        new
-                        {
-                            Id = 89,
-                            ClassId = 12,
-                            SkillId = 8
-                        },
-                        new
-                        {
-                            Id = 90,
-                            ClassId = 12,
-                            SkillId = 9
-                        },
-                        new
-                        {
-                            Id = 91,
-                            ClassId = 12,
-                            SkillId = 10
-                        },
-                        new
-                        {
-                            Id = 92,
-                            ClassId = 12,
-                            SkillId = 13
-                        },
-                        new
-                        {
-                            Id = 93,
-                            ClassId = 12,
-                            SkillId = 14
-                        },
-                        new
-                        {
-                            Id = 94,
-                            ClassId = 12,
-                            SkillId = 16
-                        },
-                        new
-                        {
-                            Id = 95,
-                            ClassId = 12,
-                            SkillId = 18
-                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Classes", b =>
@@ -765,6 +196,20 @@ namespace LaboFinalAPIDAL.Migrations
                         {
                             Id = 4,
                             CharismaBonus = 0,
+                            Class = "Roublard",
+                            ConstitutionBonus = 0,
+                            DV = 8,
+                            DexterityBonus = 0,
+                            IntelligenceBonus = 0,
+                            NbSkill = 4,
+                            SourceId = 1,
+                            StrenghtBonus = 0,
+                            WisdomBonus = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CharismaBonus = 0,
                             Class = "Druide",
                             ConstitutionBonus = 0,
                             DV = 8,
@@ -777,7 +222,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 6,
                             CharismaBonus = 0,
                             Class = "Ensorceleur",
                             ConstitutionBonus = 0,
@@ -791,7 +236,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 7,
                             CharismaBonus = 0,
                             Class = "Guerrier",
                             ConstitutionBonus = 0,
@@ -805,7 +250,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 7,
+                            Id = 8,
                             CharismaBonus = 0,
                             Class = "Magicien",
                             ConstitutionBonus = 0,
@@ -819,7 +264,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 9,
                             CharismaBonus = 0,
                             Class = "Moine",
                             ConstitutionBonus = 0,
@@ -833,7 +278,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 9,
+                            Id = 10,
                             CharismaBonus = 0,
                             Class = "Occultiste",
                             ConstitutionBonus = 0,
@@ -847,7 +292,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 10,
+                            Id = 11,
                             CharismaBonus = 0,
                             Class = "Paladin",
                             ConstitutionBonus = 0,
@@ -861,7 +306,7 @@ namespace LaboFinalAPIDAL.Migrations
                         },
                         new
                         {
-                            Id = 11,
+                            Id = 12,
                             CharismaBonus = 0,
                             Class = "Rodeur",
                             ConstitutionBonus = 0,
@@ -869,20 +314,6 @@ namespace LaboFinalAPIDAL.Migrations
                             DexterityBonus = 0,
                             IntelligenceBonus = 0,
                             NbSkill = 3,
-                            SourceId = 1,
-                            StrenghtBonus = 0,
-                            WisdomBonus = 0
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CharismaBonus = 0,
-                            Class = "Roublard",
-                            ConstitutionBonus = 0,
-                            DV = 8,
-                            DexterityBonus = 0,
-                            IntelligenceBonus = 0,
-                            NbSkill = 4,
                             SourceId = 1,
                             StrenghtBonus = 0,
                             WisdomBonus = 0
@@ -1998,7 +1429,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 2,
-                            LanguageId = 3,
+                            LanguageId = 2,
                             RaceId = 1
                         },
                         new
@@ -2010,7 +1441,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 4,
-                            LanguageId = 3,
+                            LanguageId = 2,
                             RaceId = 2
                         },
                         new
@@ -2022,7 +1453,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 6,
-                            LanguageId = 3,
+                            LanguageId = 2,
                             RaceId = 3
                         },
                         new
@@ -2094,7 +1525,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 18,
-                            LanguageId = 3,
+                            LanguageId = 2,
                             RaceId = 10
                         },
                         new
@@ -3009,77 +2440,77 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 4,
-                            Skill = "Discrétion (Dex)"
+                            Skill = "Tromperie (Cha)"
                         },
                         new
                         {
                             Id = 5,
-                            Skill = "Dressage (Sag)"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Skill = "Escamotage (Dex)"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Skill = "Histoire (Int)"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Skill = "Intimidation (Cha)"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Skill = "Intuition (Sag)"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Skill = "Investigation (Int)"
-                        },
-                        new
-                        {
-                            Id = 11,
                             Skill = "Médecine (Sag)"
                         },
                         new
                         {
-                            Id = 12,
-                            Skill = "Nature (Int)"
+                            Id = 6,
+                            Skill = "Intuition (Sag)"
                         },
                         new
                         {
-                            Id = 13,
+                            Id = 7,
+                            Skill = "Discrétion (Dex)"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Skill = "Investigation (Int)"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Skill = "Intimidation (Cha)"
+                        },
+                        new
+                        {
+                            Id = 10,
                             Skill = "Perception (Sag)"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 11,
                             Skill = "Persuasion (Cha)"
                         },
                         new
                         {
-                            Id = 15,
+                            Id = 12,
                             Skill = "Religion (Int)"
                         },
                         new
                         {
-                            Id = 16,
-                            Skill = "Représentation (Cha)"
+                            Id = 13,
+                            Skill = "Dressage (Sag)"
                         },
                         new
                         {
-                            Id = 17,
+                            Id = 14,
                             Skill = "Survie (Sag)"
                         },
                         new
                         {
+                            Id = 15,
+                            Skill = "Nature (Int)"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Skill = "Escamotage (Dex)"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Skill = "Histoire (Int)"
+                        },
+                        new
+                        {
                             Id = 18,
-                            Skill = "Tromperie (Cha)"
+                            Skill = "Représentation (Cha)"
                         });
                 });
 

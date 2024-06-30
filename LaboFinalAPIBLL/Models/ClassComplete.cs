@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboFinalAPIBLL.Interfaces.Services
+namespace LaboFinalAPIBLL.Models
 {
-    public interface IClassSkillsService
+    public class ClassComplete 
     {
-        
+        public Classes Classes {  get; set; }
+        public IEnumerable<Skills> Skills { get; set; }
     }
 }
