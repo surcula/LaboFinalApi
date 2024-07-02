@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDomain.Models
 {
-    public class BackgroundSkills
+    public class BackgroundsSkills
     {
         public int Id { get; set; }
+        public int SkillId { get; set; }
         public Skills Skill { get; set; }
+        public int BackgroundId { get; set; }
         public Backgrounds Background { get; set; }
     }
 }

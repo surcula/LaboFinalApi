@@ -107,8 +107,8 @@ namespace LaboFinalAPIDAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Background = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LanguageNumber = table.Column<int>(type: "int", nullable: false),
-                    Feature = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FeatureDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Feature = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FeatureDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -136,6 +136,7 @@ namespace LaboFinalAPIDAL.Migrations
                     IntelligenceBonus = table.Column<int>(type: "int", nullable: false),
                     CharismaBonus = table.Column<int>(type: "int", nullable: false),
                     DV = table.Column<int>(type: "int", nullable: false),
+                    NbSkill = table.Column<int>(type: "int", nullable: false),
                     SourceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -234,20 +235,21 @@ namespace LaboFinalAPIDAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: true),
                     Ca = table.Column<int>(type: "int", nullable: true),
-                    Ca_Bonus = table.Column<int>(type: "int", nullable: false),
+                    weight = table.Column<double>(type: "float", nullable: true),
+                    Ca_Bonus = table.Column<int>(type: "int", nullable: true),
                     DiceType = table.Column<int>(type: "int", nullable: true),
                     DiceNumber = table.Column<int>(type: "int", nullable: true),
-                    TypeId = table.Column<int>(type: "int", nullable: true),
-                    TypeItemId = table.Column<int>(type: "int", nullable: true)
+                    propreties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TypeId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Items", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Items_TypesItems_TypeItemId",
-                        column: x => x.TypeItemId,
+                        name: "FK_Items_TypesItems_TypeId",
+                        column: x => x.TypeId,
                         principalTable: "TypesItems",
                         principalColumn: "Id");
                 });
@@ -326,6 +328,32 @@ namespace LaboFinalAPIDAL.Migrations
                         name: "FK_RaceLanguages_Races_RaceId",
                         column: x => x.RaceId,
                         principalTable: "Races",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BackgroundsItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BackgroundId = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BackgroundsItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BackgroundsItems_Backgrounds_BackgroundId",
+                        column: x => x.BackgroundId,
+                        principalTable: "Backgrounds",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BackgroundsItems_Items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -466,14 +494,14 @@ namespace LaboFinalAPIDAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ItemId = table.Column<int>(type: "int", nullable: false),
-                    EntitieId = table.Column<int>(type: "int", nullable: false)
+                    EntityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_inventories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_inventories_Entities_EntitieId",
-                        column: x => x.EntitieId,
+                        name: "FK_inventories_Entities_EntityId",
+                        column: x => x.EntityId,
                         principalTable: "Entities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -492,10 +520,10 @@ namespace LaboFinalAPIDAL.Migrations
                 {
                     { 1, "Commun" },
                     { 2, "Nain" },
-                    { 3, "Elfe" },
+                    { 3, "Elfique" },
                     { 4, "Gnome" },
                     { 5, "Halfelin" },
-                    { 6, "Orque" },
+                    { 6, "Orc" },
                     { 7, "Abyssal" },
                     { 8, "Céleste" },
                     { 9, "Commun des profondeurs" },
@@ -535,6 +563,31 @@ namespace LaboFinalAPIDAL.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Skills",
+                columns: new[] { "Id", "Skill" },
+                values: new object[,]
+                {
+                    { 1, "Acrobaties (Dex)" },
+                    { 2, "Arcanes (Int)" },
+                    { 3, "Athlétisme (For)" },
+                    { 4, "Discrétion (Dex)" },
+                    { 5, "Dressage (Sag)" },
+                    { 6, "Escamotage (Dex)" },
+                    { 7, "Histoire (Int)" },
+                    { 8, "Intimidation (Cha)" },
+                    { 9, "Intuition (Sag)" },
+                    { 10, "Investigation (Int)" },
+                    { 11, "Médecine (Sag)" },
+                    { 12, "Nature (Int)" },
+                    { 13, "Perception (Sag)" },
+                    { 14, "Persuasion (Cha)" },
+                    { 15, "Religion (Int)" },
+                    { 16, "Représentation (Cha)" },
+                    { 17, "Survie (Sag)" },
+                    { 18, "Tromperie (Cha)" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Sources",
                 columns: new[] { "Id", "Source" },
                 values: new object[,]
@@ -546,7 +599,74 @@ namespace LaboFinalAPIDAL.Migrations
                     { 5, "Glory of the Giants" },
                     { 6, "Settings" },
                     { 7, "Aventures" },
-                    { 8, "Extra(divers)" }
+                    { 8, "Extra(divers)" },
+                    { 9, "Monsters of the Multiverse" },
+                    { 10, "Van Richten's Guide Ravenloft" },
+                    { 11, "Ereborn: Rising from the Last War" },
+                    { 12, "Sword Coast Adventurer's Guide" },
+                    { 13, "Strixhaven : A Curriculum of Chaos" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TypesItems",
+                columns: new[] { "Id", "TypeItem" },
+                values: new object[,]
+                {
+                    { 1, "Armes courantes de corps à corps" },
+                    { 2, "Armes courantes à distance" },
+                    { 3, "Armes de guerre de corps à corps" },
+                    { 4, "Armes de guerre à distance" },
+                    { 5, "Armures légères" },
+                    { 6, "Armures intermédiaires" },
+                    { 7, "Amures lourdes" },
+                    { 8, "Bouclier" },
+                    { 9, "Instrument de musique" },
+                    { 10, "Jeux" },
+                    { 11, "Outils d'artisan" },
+                    { 12, "Montures" },
+                    { 13, "Objet" },
+                    { 14, "Munitions" },
+                    { 15, "Symbole sacré" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Backgrounds",
+                columns: new[] { "Id", "Background", "Feature", "FeatureDescription", "LanguageNumber", "SourceId" },
+                values: new object[,]
+                {
+                    { 1, "Acolyte", "Abri du fidèle", null, 2, 1 },
+                    { 2, "Artisan de guilde", "Membre de guilde (soutiens des compagnons de guilde)", null, 1, 1 },
+                    { 3, "Artiste", "À la demande du public", null, 0, 1 },
+                    { 4, "Charlatan", "Fausse identité", null, 0, 1 },
+                    { 5, "Chevalier", "Domestiques", null, 1, 1 },
+                    { 6, "Criminel", "Accointances avec la pègre", null, 0, 1 },
+                    { 7, "Enfant des rues", "Secrets de la ville (trouver un passage dans un labyrinthe urbain et se déplacer en ville 2 fois plus rapidement)", null, 0, 1 },
+                    { 8, "Ermite", "Découverte", null, 1, 1 },
+                    { 9, "Héros du peuple", "Hospitalité rustique", null, 0, 1 },
+                    { 10, "Marin", "Place à bord", null, 0, 1 },
+                    { 11, "Noble", "Apanage de la noblesse (bienvenue dans la haute société)", null, 1, 1 },
+                    { 12, "Sage", "Chercheur", null, 2, 1 },
+                    { 13, "Sauvageon", "Éternel vagabond", null, 1, 1 },
+                    { 14, "Soldat", "Grade militaire", null, 0, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Classes",
+                columns: new[] { "Id", "CharismaBonus", "Class", "ConstitutionBonus", "DV", "DexterityBonus", "IntelligenceBonus", "NbSkill", "SourceId", "StrenghtBonus", "WisdomBonus" },
+                values: new object[,]
+                {
+                    { 1, 0, "Barbare", 0, 12, 0, 0, 2, 1, 0, 0 },
+                    { 2, 0, "Barde", 0, 8, 0, 0, 3, 1, 0, 0 },
+                    { 3, 0, "Clerc", 0, 8, 0, 0, 2, 1, 0, 0 },
+                    { 4, 0, "Druide", 0, 8, 0, 0, 2, 1, 0, 0 },
+                    { 5, 0, "Ensorceleur", 0, 12, 0, 0, 2, 1, 0, 0 },
+                    { 6, 0, "Guerrier", 0, 10, 0, 0, 2, 1, 0, 0 },
+                    { 7, 0, "Magicien", 0, 6, 0, 0, 2, 1, 0, 0 },
+                    { 8, 0, "Moine", 0, 8, 0, 0, 2, 1, 0, 0 },
+                    { 9, 0, "Occultiste", 0, 8, 0, 0, 2, 1, 0, 0 },
+                    { 10, 0, "Paladin", 0, 10, 0, 0, 2, 1, 0, 0 },
+                    { 11, 0, "Rodeur", 0, 10, 0, 0, 3, 1, 0, 0 },
+                    { 12, 0, "Roublard", 0, 8, 0, 0, 4, 1, 0, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -627,19 +747,263 @@ namespace LaboFinalAPIDAL.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Items",
+                columns: new[] { "Id", "Ca", "Ca_Bonus", "DiceNumber", "DiceType", "Item", "Price", "TypeId", "propreties", "weight" },
+                values: new object[,]
+                {
+                    { 1, null, null, 1, 6, "Bâton", 200, 1, "Polyvalente (1d8)", 2000.0 },
+                    { 2, null, null, 1, 4, "Dague", 2000, 1, "Finesse, légère, lancer (portée 6 m/18 m)", 500.0 },
+                    { 3, null, null, 1, 4, "Gourdin", 100, 1, "Légère", 1000.0 },
+                    { 4, null, null, 1, 6, "Hachette", 5000, 1, "Légère, lancer (portée 6 m/18 m)", 1000.0 },
+                    { 5, null, null, 1, 6, "Javeline", 500, 1, "Lancer (portée 9 m/36 m)", 1000.0 },
+                    { 6, null, null, 1, 6, "Lance", 100, 1, "Lancer (portée 6 m/18 m), polyvalente (1d8)", 1500.0 },
+                    { 7, null, null, 1, 4, "Marteau léger", 2000, 1, "Légère, lancer (portée 6 m/18 m)", 1000.0 },
+                    { 8, null, null, 1, 6, "Masse d'armes", 5000, 1, null, 2000.0 },
+                    { 9, null, null, 1, 8, "Massue", 200, 1, "À deux mains", 5000.0 },
+                    { 10, null, null, 1, 4, "Serpe", 100, 1, "Légère", 1000.0 },
+                    { 11, null, null, 1, 8, "Arbalète légère", 2500, 2, "Munitions (portée 24 m/96 m), chargement, à deux mains", 2500.0 },
+                    { 12, null, null, 1, 6, "Arc court", 2500, 2, "Munitions (portée 24 m/96 m), à deux mains", 1000.0 },
+                    { 13, null, null, 1, 4, "Fléchette", 50, 2, "Finesse, lancer (portée 6 m/18 m)", 100.0 },
+                    { 14, null, null, 1, 4, "Fronde", 100, 2, "Munitions (portée 9 m/36 m)", 0.0 },
+                    { 15, null, null, 1, 6, "Cimeterre", 2500, 3, "Finesse, légère", 1500.0 },
+                    { 16, null, null, 1, 10, "Coutille", 2000, 3, "Lourde, allonge, à deux mains", 3000.0 },
+                    { 17, null, null, 3, 6, "Épée à deux mains", 5000, 3, "Lourde, à deux mains", 3000.0 },
+                    { 18, null, null, 1, 6, "Épée courte", 1000, 3, "Finesse, légère", 1000.0 },
+                    { 19, null, null, 1, 8, "Épée longue", 1500, 3, "Polyvalente (1d10)", 1500.0 },
+                    { 20, null, null, 1, 8, "Fléau d'armes", 1000, 3, null, 1000.0 },
+                    { 21, null, null, 1, 4, "Fouet", 200, 3, "Finesse, allonge", 1500.0 },
+                    { 22, null, null, 1, 12, "Hache à deux mains", 3000, 3, "Lourde, à deux mains", 3500.0 },
+                    { 23, null, null, 1, 8, "Hache d'armes", 1000, 3, "Polyvalente (1d10)", 2000.0 },
+                    { 24, null, null, 1, 10, "Hallebarde", 2000, 3, "Lourde, allonge, à deux mains", 3000.0 },
+                    { 25, null, null, 1, 12, "Lance d’arçon", 1000, 3, "Allonge, spécial", 3000.0 },
+                    { 26, null, null, 2, 6, "Maillet", 1000, 3, "Lourde, à deux mains", 5000.0 },
+                    { 27, null, null, 1, 8, "Marteau de guerre", 1500, 3, "Polyvalente (1d10)", 1000.0 },
+                    { 28, null, null, 1, 8, "Morgenstern", 1500, 3, null, 2000.0 },
+                    { 29, null, null, 1, 8, "Pic de guerre", 500, 3, null, 1000.0 },
+                    { 30, null, null, 1, 10, "Pique", 500, 3, "Lourde, allonge, à deux mains", 9000.0 },
+                    { 31, null, null, 1, 8, "Rapière", 2500, 3, "Finesse", 1000.0 },
+                    { 32, null, null, 1, 6, "Trident", 500, 3, "Lancer (portée 6 m/18 m), polyvalente (1d8)", 2000.0 },
+                    { 33, null, null, 4, 6, "Arbalète de poing", 7500, 2, "Munitions (portée 9 m/36 m), légère, chargement", 1500.0 },
+                    { 34, null, null, 4, 10, "Arbalète lourde", 5000, 2, "Munitions (portée 30 m/120 m), lourde, chargement, à deux mains", 9000.0 },
+                    { 35, null, null, 1, 8, "Arc long", 5000, 2, "Munitions (portée 45 m/180 m), lourde, à deux mains", 1000.0 },
+                    { 36, null, null, 0, 0, "Filet", 100, 4, "Lancer (portée 1,50 m/4,50 m), spécial", 1500.0 },
+                    { 37, null, null, 1, 1, "Sarbacane", 1000, 4, "Munitions (portée 7,50 m/15 m), légère", 500.0 },
+                    { 38, 11, null, null, null, "Matelassée", 500, 5, "Discrétion : Désavantage", 4000.0 },
+                    { 39, 11, null, null, null, "Cuir", 1000, 5, null, 5000.0 },
+                    { 40, 12, null, null, null, "Cuir clouté", 4500, 5, null, 6500.0 },
+                    { 41, 12, null, null, null, "Peaux", 1000, 6, "Mod.Dex (max +2)", 6000.0 },
+                    { 42, 13, null, null, null, "Chemise de mailles", 5000, 6, "Mod.Dex (max +2)", 10000.0 },
+                    { 43, 14, null, null, null, "Écailles", 5000, 6, "Mod.Dex (max +2), Discrétion : Désavantage", 22500.0 },
+                    { 44, 14, null, null, null, "Cuirasse", 40000, 6, "Mod.Dex (max +2)", 10000.0 },
+                    { 45, 15, null, null, null, "Demi-plate", 75000, 6, "Mod.Dex (max +2), Discrétion : Désavantage", 20000.0 },
+                    { 46, 14, null, null, null, "Broigne", 3000, 7, "Discrétion : Désavantage", 20000.0 },
+                    { 47, 16, null, null, null, "Cotte de mailles", 7500, 7, "Forces : 13, Discrétion : Désavantage", 27500.0 },
+                    { 48, 17, null, null, null, "Clibanion", 20000, 7, "Forces : 15, Discrétion : Désavantage", 30000.0 },
+                    { 49, 18, null, null, null, "Harnois", 150000, 7, "Forces : 15, Discrétion : Désavantage", 32500.0 },
+                    { 50, 2, null, null, null, "Bouclier", 1000, 8, null, 3000.0 },
+                    { 51, null, null, null, null, "Chalemie", 200, 9, null, 500.0 },
+                    { 52, null, null, null, null, "Cor", 300, 9, null, 1000.0 },
+                    { 53, null, null, null, null, "Cornemuse", 3000, 9, null, 3000.0 },
+                    { 54, null, null, null, null, "Flûte", 200, 9, null, 500.0 },
+                    { 55, null, null, null, null, "Flûte de pan", 1200, 9, null, 1000.0 },
+                    { 56, null, null, null, null, "Luth", 3500, 9, null, 1000.0 },
+                    { 57, null, null, null, null, "Lyre", 3000, 9, null, 1000.0 },
+                    { 58, null, null, null, null, "Tambour", 600, 9, null, 1500.0 },
+                    { 59, null, null, null, null, "Tympanon", 2500, 9, null, 5000.0 },
+                    { 60, null, null, null, null, "Viole", 3000, 9, null, 500.0 },
+                    { 61, null, null, null, null, "Dés", 10, 10, null, 0.0 },
+                    { 62, null, null, null, null, "Jeu d'échecs draconiques", 100, 10, null, 250.0 },
+                    { 63, null, null, null, null, "Jeu de cartes", 50, 10, null, 0.0 },
+                    { 64, null, null, null, null, "Jeu des Dragons", 100, 10, null, 0.0 },
+                    { 65, null, null, null, null, "Kit d'empoisonneur", 5000, 11, null, 1000.0 },
+                    { 66, null, null, null, null, "Kit d'herboriste", 500, 11, null, 1500.0 },
+                    { 67, null, null, null, null, "Kit de contrefaçon", 1500, 11, null, 2500.0 },
+                    { 68, null, null, null, null, "Kit de déguisement", 2500, 11, null, 1500.0 },
+                    { 69, null, null, null, null, "Matériel d'alchimiste", 5000, 11, null, 4000.0 },
+                    { 70, null, null, null, null, "Matériel de brasseur", 2000, 11, null, 4500.0 },
+                    { 71, null, null, null, null, "Matériel de calligraphe", 1000, 11, null, 2500.0 },
+                    { 72, null, null, null, null, "Matériel de peintre", 1000, 11, null, 2500.0 },
+                    { 73, null, null, null, null, "Outils de bijoutier", 2500, 11, null, 1000.0 },
+                    { 74, null, null, null, null, "Outils de bricoleur", 5000, 11, null, 5000.0 },
+                    { 75, null, null, null, null, "Outils de cartographe", 1500, 11, null, 3000.0 },
+                    { 76, null, null, null, null, "Outils de charpentier", 800, 11, null, 3000.0 },
+                    { 77, null, null, null, null, "Outils de cordonnier", 500, 11, null, 2500.0 },
+                    { 78, null, null, null, null, "Outils de forgeron", 2000, 11, null, 4000.0 },
+                    { 79, null, null, null, null, "Outils de maçon", 1000, 11, null, 4000.0 },
+                    { 80, null, null, null, null, "Outils de menuisier", 100, 11, null, 2500.0 },
+                    { 81, null, null, null, null, "Outils de potier", 1000, 11, null, 1000.0 },
+                    { 82, null, null, null, null, "Outils de souffleur de verre", 3000, 11, null, 2500.0 },
+                    { 83, null, null, null, null, "Outils de tanneur", 500, 11, null, 2500.0 },
+                    { 84, null, null, null, null, "Outils de tisserand", 100, 11, null, 2500.0 },
+                    { 85, null, null, null, null, "Ustensiles de cuisinier", 100, 11, null, 4000.0 },
+                    { 86, null, null, null, null, "Outils de navigateur", 2500, 11, null, 1000.0 },
+                    { 87, null, null, null, null, "Outils de voleur", 2500, 11, null, 500.0 },
+                    { 88, null, null, null, null, "Âne ou mule", 800, 12, "Vitesse : 12 m, Capacité de charge : 210 kg", 0.0 },
+                    { 89, null, null, null, null, "Chameau", 5000, 12, "Vitesse : 15 m, Capacité de charge : 240 kg", 0.0 },
+                    { 90, null, null, null, null, "Cheval de guerre", 40000, 12, "Vitesse : 18 m, Capacité de charge : 270 kg", 0.0 },
+                    { 91, null, null, null, null, "Cheval de selle", 7500, 12, "Vitesse : 18 m, Capacité de charge : 240 kg", 0.0 },
+                    { 92, null, null, null, null, "Cheval de trait", 5000, 12, "Vitesse : 12 m, Capacité de charge : 270 kg", 0.0 },
+                    { 93, null, null, null, null, "Éléphant", 20000, 12, "Vitesse : 12 m, Capacité de charge : 660 kg", 0.0 },
+                    { 94, null, null, null, null, "Molosse", 2500, 12, "Vitesse : 12 m, Capacité de charge : 95 kg", 0.0 },
+                    { 95, null, null, null, null, "Poney", 3000, 12, "Vitesse : 12 m, Capacité de charge : 115 kg", 0.0 },
+                    { 97, null, null, null, null, "Antidote (fiole)", 5000, 13, null, 0.0 },
+                    { 98, null, null, null, null, "Balance de marchand", 500, 13, null, 1500.0 },
+                    { 99, null, null, null, null, "Bélier portable", 400, 13, null, 17500.0 },
+                    { 100, null, null, null, null, "Billes (sac de 1000)", 100, 13, null, 1000.0 },
+                    { 101, null, null, null, null, "Boite d'allume-feu", 5, 13, null, 500.0 },
+                    { 102, null, null, null, null, "Bougie", 1, 13, null, 0.0 },
+                    { 103, null, null, null, null, "Boulier", 2, 13, null, 1000.0 },
+                    { 104, null, null, null, null, "Bouteille en verre", 2, 13, null, 1000.0 },
+                    { 105, null, null, null, null, "Cadenas", 10, 13, null, 500.0 },
+                    { 106, null, null, null, null, "Carquois", 1, 13, null, 500.0 },
+                    { 107, null, null, null, null, "Chaîne (3 m)", 5, 13, null, 5000.0 },
+                    { 108, null, null, null, null, "Chausse-trappes (sac de 20)", 1, 13, null, 1000.0 },
+                    { 109, null, null, null, null, "Chevalière", 5, 13, null, 0.0 },
+                    { 110, null, null, null, null, "Cire à cacheter", 5, 13, null, 0.0 },
+                    { 111, null, null, null, null, "Cloche", 1, 13, null, 0.0 },
+                    { 112, null, null, null, null, "Coffre", 5, 13, null, 12500.0 },
+                    { 113, null, null, null, null, "Corde en chanvre (15 m)", 1, 13, null, 5000.0 },
+                    { 114, null, null, null, null, "Corde en soie (15 m)", 10, 13, null, 2500.0 },
+                    { 115, null, null, null, null, "Couverture", 5, 13, null, 1500.0 },
+                    { 116, null, null, null, null, "Craie (un morceau)", 1, 13, null, 0.0 },
+                    { 117, null, null, null, null, "Cruche ou pichet", 2, 13, null, 2000.0 },
+                    { 118, null, null, null, null, "Eau bénite (flasque)", 2500, 13, null, 500.0 },
+                    { 119, null, null, null, null, "Échelle (3 m)", 1, 13, null, 12500.0 },
+                    { 120, null, null, null, null, "Encre (bouteille de 30 ml)", 10, 13, null, 0.0 },
+                    { 121, null, null, null, null, "Étui à carreaux", 1, 13, null, 500.0 },
+                    { 122, null, null, null, null, "Étui à cartes ou parchemins", 1, 13, null, 500.0 },
+                    { 123, null, null, null, null, "Feu grégeois (flasque)", 5000, 13, null, 500.0 },
+                    { 124, null, null, null, null, "Fiole (10 cl)", 1, 13, null, 0.0 },
+                    { 125, null, null, null, null, "Flasque ou chope (50 cl)", 2, 13, null, 500.0 },
+                    { 126, null, null, null, null, "Focaliseur arcanique - Baguette", 10, 13, null, 500.0 },
+                    { 127, null, null, null, null, "Focaliseur arcanique - Bâton", 5, 13, null, 2000.0 },
+                    { 128, null, null, null, null, "Focaliseur arcanique - Boule de cristal", 10, 13, null, 500.0 },
+                    { 129, null, null, null, null, "Focaliseur arcanique - Orbe", 20, 13, null, 1500.0 },
+                    { 130, null, null, null, null, "Focaliseur arcanique - Sceptre", 10, 13, null, 1000.0 },
+                    { 131, null, null, null, null, "Focaliseur druidique - Baguette d'if", 10, 13, null, 500.0 },
+                    { 132, null, null, null, null, "Focaliseur druidique - Bâton", 5, 13, null, 2000.0 },
+                    { 133, null, null, null, null, "Focaliseur druidique - Branche de gui", 1, 13, null, 0.0 },
+                    { 134, null, null, null, null, "Focaliseur druidique - Totem", 1, 13, null, 0.0 },
+                    { 135, null, null, null, null, "Gamelle", 2, 7, null, 500.0 },
+                    { 136, null, null, null, null, "Gourde (pleine)", 2, 13, null, 2500.0 },
+                    { 137, null, null, null, null, "Grappin", 2, 13, null, 2000.0 },
+                    { 138, null, null, null, null, "Grimoire", 50, 13, null, 1500.0 },
+                    { 139, null, null, null, null, "Huile (flasque)", 1, 13, null, 500.0 },
+                    { 140, null, null, null, null, "Kit d’escalade", 25, 13, null, 6000.0 },
+                    { 141, null, null, null, null, "Lampe", 5, 13, null, 500.0 },
+                    { 142, null, null, null, null, "Lanterne à capote", 5, 13, null, 1000.0 },
+                    { 143, null, null, null, null, "Lanterne sourde", 10, 13, null, 1000.0 },
+                    { 144, null, null, null, null, "Livre", 25, 13, null, 2500.0 },
+                    { 145, null, null, null, null, "Longue-vue", 1000, 13, null, 500.0 },
+                    { 146, null, null, null, null, "Loupe", 100, 13, null, 0.0 },
+                    { 147, null, null, null, null, "Marteau", 1, 13, null, 1500.0 },
+                    { 148, null, null, null, null, "Marteau de forgeron", 2, 13, null, 5000.0 },
+                    { 149, null, null, null, null, "Matériel de pêche", 1, 13, null, 2000.0 },
+                    { 150, null, null, null, null, "Menottes", 2, 13, null, 3000.0 },
+                    { 151, null, null, null, null, "Miroir en acier", 5, 13, null, 250.0 },
+                    { 152, null, null, null, null, "Aiguilles de sarbacane (50)", 100, 11, null, 500.0 },
+                    { 153, null, null, null, null, "Billes de fronde (20)", 4, 11, null, 750.0 },
+                    { 154, null, null, null, null, "Carreaux d'arbalète (20)", 1, 11, null, 750.0 },
+                    { 155, null, null, null, null, "Flèches (20)", 1, 11, null, 500.0 },
+                    { 156, null, null, null, null, "Palan", 1, 13, null, 2500.0 },
+                    { 157, null, null, null, null, "Panier", 4, 13, null, 1000.0 },
+                    { 158, null, null, null, null, "Papier (une feuille)", 2, 13, null, 0.0 },
+                    { 159, null, null, null, null, "Parchemin (une feuille)", 1, 13, null, 0.0 },
+                    { 160, null, null, null, null, "Parfum (fiole)", 5, 13, null, 0.0 },
+                    { 161, null, null, null, null, "Pelle", 2, 13, null, 2500.0 },
+                    { 162, null, null, null, null, "Perche (3 m)", 5, 13, null, 3500.0 },
+                    { 163, null, null, null, null, "Pied-de-biche", 2, 13, null, 2500.0 },
+                    { 164, null, null, null, null, "Piège à mâchoires", 5, 13, null, 12500.0 },
+                    { 165, null, null, null, null, "Pierre à aiguiser", 1, 13, null, 500.0 },
+                    { 166, null, null, null, null, "Pioche de mineur", 2, 13, null, 5000.0 },
+                    { 167, null, null, null, null, "Piton", 5, 13, null, 125.0 },
+                    { 168, null, null, null, null, "Plume d’écriture", 2, 13, null, 0.0 },
+                    { 169, null, null, null, null, "Pointes en fer (10)", 1, 13, null, 2500.0 },
+                    { 170, null, null, null, null, "Poison (fiole)", 100, 13, null, 0.0 },
+                    { 171, null, null, null, null, "Pot en fer", 2, 13, null, 5000.0 },
+                    { 172, null, null, null, null, "Potion de guérison", 50, 13, null, 250.0 },
+                    { 173, null, null, null, null, "Rations (1 jour)", 5, 13, null, 1000.0 },
+                    { 174, null, null, null, null, "Robes", 1, 13, null, 2000.0 },
+                    { 175, null, null, null, null, "Sablier", 25, 13, null, 500.0 },
+                    { 176, null, null, null, null, "Sac", 1, 13, null, 250.0 },
+                    { 177, null, null, null, null, "Sac à dos", 2, 13, null, 2500.0 },
+                    { 178, null, null, null, null, "Sac de couchage", 1, 13, null, 3500.0 },
+                    { 179, null, null, null, null, "Sacoche", 5, 10, null, 500.0 },
+                    { 180, null, null, null, null, "Sacoche à composantes", 25, 13, null, 1000.0 },
+                    { 181, null, null, null, null, "Savon", 2, 13, null, 0.0 },
+                    { 182, null, null, null, null, "Seau", 5, 13, null, 1000.0 },
+                    { 183, null, null, null, null, "Sifflet", 5, 13, null, 0.0 },
+                    { 184, null, null, null, null, "Amulette", 5, 12, null, 500.0 },
+                    { 185, null, null, null, null, "Emblème", 5, 12, null, 0.0 },
+                    { 186, null, null, null, null, "Reliquaire", 5, 12, null, 1000.0 },
+                    { 187, null, null, null, null, "Tente", 200, 13, null, 10000.0 },
+                    { 188, null, null, null, null, "Tonneau", 200, 13, null, 35000.0 },
+                    { 189, null, null, null, null, "Torche", 1, 13, null, 500.0 },
+                    { 190, null, null, null, null, "Trousse de soins", 500, 13, null, 1500.0 },
+                    { 191, null, null, null, null, "Vêtements, communs", 5, 13, null, 1500.0 },
+                    { 192, null, null, null, null, "Vêtements, costume", 500, 13, null, 2000.0 },
+                    { 193, null, null, null, null, "Vêtements, fins", 1500, 13, null, 3000.0 },
+                    { 194, null, null, null, null, "Vêtements, voyage", 200, 13, null, 2000.0 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Races",
                 columns: new[] { "Id", "CharismsBonus", "ConstitutionBonus", "DexterityBonus", "IntelligenceBonus", "Race", "Size", "SourceId", "Speed", "StrenghtBonus", "WisdomBonus" },
                 values: new object[,]
                 {
-                    { 1, "1", "1", "1", "1", "Humain", "M", 1, "9m/round", "1", "1" },
-                    { 2, "0", "0", "2", "1", "Haut-elfe", "M", 1, "9m/round", "0", "0" },
-                    { 3, "0", "0", "0", "0", "Humain (Don)", "M", 1, "9m/round", "0", "0" },
-                    { 4, "0", "2", "0", "0", "Nain", "M", 1, "7m/round", "2", "0" },
-                    { 5, "0", "0", "0", "2", "Gnome", "P", 1, "7m/round", "0", "0" },
-                    { 6, "-1", "1", "0", "-2", "Demi-Orc", "M", 1, "9m/round", "2", "0" },
-                    { 7, "1", "0", "0", "2", "Tieffelin", "M", 1, "9m/round", "0", "1" },
-                    { 8, "0", "0", "2", "0", "Elfe Noire", "M", 1, "9m/round", "0", "0" },
-                    { 9, "0", "0", "2", "0", "Elfe des Montagnes", "M", 1, "9m/round", "0", "0" }
+                    { 1, "0", "0", "2", "1", "Haut-elfe", "M", 1, "9m/round", "0", "0" },
+                    { 2, "0", "0", "2", "0", "elfe des bois", "M", 1, "10,5m/round", "0", "1" },
+                    { 3, "1", "0", "2", "0", "elfe noir", "M", 1, "9m/round", "0", "0" },
+                    { 4, "1", "0", "2", "0", "Halfelin pied-léger", "P", 1, "7,5m/round", "0", "0" },
+                    { 5, "0", "1", "2", "0", "Halfelin robuste", "P", 1, "7,5m/round", "0", "0" },
+                    { 6, "1", "1", "1", "1", "Humain ", "M", 1, "9m/round", "1", "1" },
+                    { 7, "0", "0", "0", "0", "Humain (Don)", "M", 1, "9m/round", "0", "0" },
+                    { 8, "0", "2", "0", "0", "Nain des collines", "M", 1, "7,5m/round", "0", "1" },
+                    { 9, "0", "2", "0", "0", "Nain des montagnes", "M", 1, "7.5m/round", "2", "0" },
+                    { 10, "2", "0", "0", "0", "Demi-elfe", "M", 1, "9m/round", "0", "0" },
+                    { 11, "0", "1", "0", "0", "Demi-Orc", "M", 1, "9m/round", "2", "0" },
+                    { 12, "1", "0", "0", "0", "Drakéide", "M", 1, "9m/round", "2", "0" },
+                    { 13, "0", "0", "1", "2", "Gnome des forêts", "P", 1, "7,5m/round", "0", "0" },
+                    { 14, "0", "1", "0", "2", "Gnome des roches", "P", 1, "7,5m/round", "0", "0" },
+                    { 15, "2", "0", "0", "1", "Tieffelin", "M", 1, "9m/round", "0", "0" },
+                    { 16, "0", "0", "0", "0", "Aarakocra", "M", 9, "7,5m/round (marche), 15m/round (vol)", "0", "0" },
+                    { 17, "0", "0", "0", "0", "Aasimar", "M", 9, "9m/round", "0", "0" },
+                    { 18, "0", "0", "0", "0", "Centaure", "M", 9, "12m/round", "0", "0" },
+                    { 19, "0", "0", "0", "0", "Changeling", "M", 9, "9m/round", "0", "0" },
+                    { 20, "0", "0", "0", "0", "Conil", "P", 9, "9m/round", "0", "0" },
+                    { 21, "0", "0", "0", "0", "Dhampire", "M", 10, "9m/round", "0", "0" },
+                    { 22, "0", "0", "0", "0", "Duergar", "M", 10, "7,5m/round", "0", "0" },
+                    { 23, "0", "0", "0", "0", "Eladrin", "M", 10, "9m/round", "0", "0" },
+                    { 24, "0", "0", "0", "0", "Elfe aquatique", "M", 10, "9m/round, 9m/nage", "0", "0" },
+                    { 25, "0", "0", "0", "0", "Fadette", "M", 10, "10,5m/round", "0", "0" },
+                    { 26, "0", "0", "0", "0", "Féral", "M", 10, "9m/round", "0", "0" },
+                    { 27, "0", "0", "0", "0", "Firbolg", "M", 10, "9m/round", "0", "0" },
+                    { 28, "0", "0", "0", "0", "Forgelier", "M", 11, "9m/round", "0", "0" },
+                    { 29, "0", "0", "0", "0", "Genasi (Air)", "M", 9, "9m/round", "0", "0" },
+                    { 30, "0", "0", "0", "0", "Genasi (Terre)", "M", 9, "9m/round", "0", "0" },
+                    { 31, "0", "0", "0", "0", "Genasi (Feu)", "M", 9, "9m/round", "0", "0" },
+                    { 32, "0", "0", "0", "0", "Genasi (Eau)", "M", 9, "9m/round, 9m/nage", "0", "0" },
+                    { 33, "0", "0", "0", "0", "Githzerai", "M", 9, "9m/round", "0", "0" },
+                    { 34, "0", "0", "0", "0", "Gnome des profondeurs", "P", 9, "7,5m/round", "0", "0" },
+                    { 35, "0", "0", "0", "0", "Gobelin", "P", 9, "9m/round", "0", "0" },
+                    { 36, "0", "0", "0", "0", "Gobelours", "M", 9, "9m/round", "0", "0" },
+                    { 37, "0", "0", "0", "0", "Goliath", "M", 9, "9m/round", "0", "0" },
+                    { 38, "0", "0", "0", "0", "Halfelin sagespectre", "P", 12, "7,5m/round", "0", "0" },
+                    { 39, "0", "0", "0", "0", "Hiboulin", "M", 13, "9m/round (marche), 10,5m/round (vol)", "0", "0" },
+                    { 40, "0", "0", "0", "0", "Hobgobelin", "M", 9, "9m/round", "0", "0" },
+                    { 41, "0", "0", "0", "0", "Homme-Lézard", "M", 9, "9m/round, 9m/nage", "0", "0" },
+                    { 42, "0", "0", "0", "0", "Kenku", "M", 9, "9m/round", "0", "0" },
+                    { 43, "0", "0", "0", "0", "Kobold", "P", 9, "9m/round", "0", "0" },
+                    { 44, "0", "0", "0", "0", "Minotaure", "M", 9, "9m/round", "0", "0" },
+                    { 45, "0", "0", "0", "0", "Orc", "M", 9, "9m/round", "0", "0" },
+                    { 46, "0", "0", "0", "0", "Ressucité", "M", 10, "9m/round", "0", "0" },
+                    { 47, "0", "0", "0", "0", "Sang maudit", "M", 10, "9m/round", "0", "0" },
+                    { 48, "0", "0", "0", "0", "Satyre", "M", 9, "10,5m/round", "0", "0" },
+                    { 49, "0", "0", "0", "0", "Shadar-kai", "M", 9, "9m/round", "0", "0" },
+                    { 50, "0", "0", "0", "0", "Tabaxi", "M", 9, "9m/round", "0", "0" },
+                    { 51, "0", "0", "0", "0", "Torte", "M", 9, "9m/round", "0", "0" },
+                    { 52, "0", "0", "0", "0", "Triton", "M", 9, "9m/round, 9m/nage", "0", "0" },
+                    { 53, "0", "0", "0", "0", "Yuan-ti", "M", 3, "9m/round", "0", "0" }
                 });
 
             migrationBuilder.InsertData(
@@ -656,25 +1020,206 @@ namespace LaboFinalAPIDAL.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "BackgroundSkills",
+                columns: new[] { "Id", "BackgroundId", "SkillId" },
+                values: new object[,]
+                {
+                    { 1, 1, 9 },
+                    { 2, 1, 15 },
+                    { 3, 2, 9 },
+                    { 4, 2, 14 },
+                    { 5, 3, 1 },
+                    { 6, 3, 16 },
+                    { 7, 4, 6 },
+                    { 8, 4, 18 },
+                    { 9, 5, 7 },
+                    { 10, 5, 14 },
+                    { 11, 6, 4 },
+                    { 12, 6, 18 },
+                    { 13, 7, 4 },
+                    { 14, 7, 6 },
+                    { 15, 8, 11 },
+                    { 16, 8, 15 },
+                    { 17, 9, 5 },
+                    { 18, 9, 17 },
+                    { 19, 10, 3 },
+                    { 20, 10, 13 },
+                    { 21, 11, 7 },
+                    { 22, 11, 14 },
+                    { 23, 12, 2 },
+                    { 24, 12, 7 },
+                    { 25, 13, 3 },
+                    { 26, 13, 17 },
+                    { 27, 14, 3 },
+                    { 28, 14, 8 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "BackgroundsItems",
+                columns: new[] { "Id", "BackgroundId", "ItemId" },
+                values: new object[,]
+                {
+                    { 1, 3, 68 },
+                    { 2, 4, 68 },
+                    { 3, 4, 67 },
+                    { 4, 6, 87 },
+                    { 5, 7, 68 },
+                    { 6, 7, 87 },
+                    { 7, 8, 66 },
+                    { 8, 10, 86 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ClassSkills",
+                columns: new[] { "Id", "ClassId", "SkillId" },
+                values: new object[,]
+                {
+                    { 1, 1, 3 },
+                    { 2, 1, 5 },
+                    { 3, 1, 8 },
+                    { 4, 1, 12 },
+                    { 5, 1, 13 },
+                    { 6, 1, 17 },
+                    { 7, 2, 1 },
+                    { 8, 2, 2 },
+                    { 9, 2, 3 },
+                    { 10, 2, 4 },
+                    { 11, 2, 5 },
+                    { 12, 2, 6 },
+                    { 13, 2, 7 },
+                    { 14, 2, 8 },
+                    { 15, 2, 9 },
+                    { 16, 2, 10 },
+                    { 17, 2, 11 },
+                    { 18, 2, 12 },
+                    { 19, 2, 13 },
+                    { 20, 2, 14 },
+                    { 21, 2, 15 },
+                    { 22, 2, 16 },
+                    { 23, 2, 17 },
+                    { 24, 2, 18 },
+                    { 25, 3, 7 },
+                    { 26, 3, 9 },
+                    { 27, 3, 11 },
+                    { 28, 3, 14 },
+                    { 29, 3, 15 },
+                    { 30, 4, 2 },
+                    { 31, 4, 5 },
+                    { 32, 4, 9 },
+                    { 33, 4, 11 },
+                    { 34, 4, 12 },
+                    { 35, 4, 13 },
+                    { 36, 4, 15 },
+                    { 37, 4, 17 },
+                    { 38, 5, 2 },
+                    { 39, 5, 8 },
+                    { 40, 5, 9 },
+                    { 41, 5, 14 },
+                    { 42, 5, 15 },
+                    { 43, 5, 18 },
+                    { 44, 6, 1 },
+                    { 45, 6, 3 },
+                    { 46, 6, 5 },
+                    { 47, 6, 7 },
+                    { 48, 6, 8 },
+                    { 49, 6, 9 },
+                    { 50, 6, 13 },
+                    { 51, 6, 17 },
+                    { 52, 7, 2 },
+                    { 53, 7, 7 },
+                    { 54, 7, 9 },
+                    { 55, 7, 10 },
+                    { 56, 7, 11 },
+                    { 57, 7, 15 },
+                    { 58, 8, 1 },
+                    { 59, 8, 3 },
+                    { 60, 8, 4 },
+                    { 61, 8, 7 },
+                    { 62, 8, 9 },
+                    { 63, 8, 15 },
+                    { 64, 9, 2 },
+                    { 65, 9, 7 },
+                    { 66, 9, 8 },
+                    { 67, 9, 10 },
+                    { 68, 9, 12 },
+                    { 69, 9, 15 },
+                    { 70, 9, 18 },
+                    { 71, 10, 3 },
+                    { 72, 10, 8 },
+                    { 73, 10, 9 },
+                    { 74, 10, 11 },
+                    { 75, 10, 14 },
+                    { 76, 10, 15 },
+                    { 77, 11, 3 },
+                    { 78, 11, 4 },
+                    { 79, 11, 5 },
+                    { 80, 11, 9 },
+                    { 81, 11, 10 },
+                    { 82, 11, 12 },
+                    { 83, 11, 13 },
+                    { 84, 11, 17 },
+                    { 85, 12, 1 },
+                    { 86, 12, 3 },
+                    { 87, 12, 4 },
+                    { 88, 12, 6 },
+                    { 89, 12, 8 },
+                    { 90, 12, 9 },
+                    { 91, 12, 10 },
+                    { 92, 12, 13 },
+                    { 93, 12, 14 },
+                    { 94, 12, 16 },
+                    { 95, 12, 18 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "RaceLanguages",
                 columns: new[] { "Id", "LanguageId", "RaceId" },
                 values: new object[,]
                 {
                     { 1, 1, 1 },
-                    { 2, 3, 2 },
-                    { 3, 2, 3 },
-                    { 4, 2, 4 },
-                    { 5, 4, 5 },
-                    { 6, 23, 6 },
-                    { 7, 15, 7 },
-                    { 8, 3, 8 },
-                    { 9, 3, 9 }
+                    { 2, 3, 1 },
+                    { 3, 1, 2 },
+                    { 4, 3, 2 },
+                    { 5, 1, 3 },
+                    { 6, 3, 3 },
+                    { 7, 1, 4 },
+                    { 8, 5, 4 },
+                    { 9, 1, 5 },
+                    { 10, 5, 5 },
+                    { 11, 1, 6 },
+                    { 12, 1, 7 },
+                    { 13, 1, 8 },
+                    { 14, 2, 8 },
+                    { 15, 1, 9 },
+                    { 16, 2, 9 },
+                    { 17, 1, 10 },
+                    { 18, 3, 10 },
+                    { 19, 1, 11 },
+                    { 20, 6, 11 },
+                    { 21, 1, 12 },
+                    { 22, 10, 12 },
+                    { 23, 1, 13 },
+                    { 24, 4, 13 },
+                    { 25, 1, 14 },
+                    { 26, 4, 14 },
+                    { 27, 1, 15 },
+                    { 28, 11, 15 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Backgrounds_SourceId",
                 table: "Backgrounds",
                 column: "SourceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BackgroundsItems_BackgroundId",
+                table: "BackgroundsItems",
+                column: "BackgroundId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BackgroundsItems_ItemId",
+                table: "BackgroundsItems",
+                column: "ItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BackgroundSkills_BackgroundId",
@@ -767,9 +1312,9 @@ namespace LaboFinalAPIDAL.Migrations
                 column: "SourceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_inventories_EntitieId",
+                name: "IX_inventories_EntityId",
                 table: "inventories",
-                column: "EntitieId");
+                column: "EntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_inventories_ItemId",
@@ -777,9 +1322,9 @@ namespace LaboFinalAPIDAL.Migrations
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_TypeItemId",
+                name: "IX_Items_TypeId",
                 table: "Items",
-                column: "TypeItemId");
+                column: "TypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RaceLanguages_LanguageId",
@@ -810,6 +1355,9 @@ namespace LaboFinalAPIDAL.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "BackgroundsItems");
+
             migrationBuilder.DropTable(
                 name: "BackgroundSkills");
 

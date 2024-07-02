@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaboFinalAPIDAL.Migrations
 {
     [DbContext(typeof(DDBContext))]
-    [Migration("20240701131558_test6")]
-    partial class test6
+    [Migration("20240702172944_test1")]
+    partial class test1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,225 @@ namespace LaboFinalAPIDAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundSkills", b =>
+            modelBuilder.Entity("LaboFinalAPIDomain.Models.Backgrounds", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Background")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Feature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FeatureDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LanguageNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SourceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SourceId");
+
+                    b.ToTable("Backgrounds");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Background = "Acolyte",
+                            Feature = "Abri du fidèle",
+                            LanguageNumber = 2,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Background = "Artisan de guilde",
+                            Feature = "Membre de guilde (soutiens des compagnons de guilde)",
+                            LanguageNumber = 1,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Background = "Artiste",
+                            Feature = "À la demande du public",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Background = "Charlatan",
+                            Feature = "Fausse identité",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Background = "Chevalier",
+                            Feature = "Domestiques",
+                            LanguageNumber = 1,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Background = "Criminel",
+                            Feature = "Accointances avec la pègre",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Background = "Enfant des rues",
+                            Feature = "Secrets de la ville (trouver un passage dans un labyrinthe urbain et se déplacer en ville 2 fois plus rapidement)",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Background = "Ermite",
+                            Feature = "Découverte",
+                            LanguageNumber = 1,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Background = "Héros du peuple",
+                            Feature = "Hospitalité rustique",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Background = "Marin",
+                            Feature = "Place à bord",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Background = "Noble",
+                            Feature = "Apanage de la noblesse (bienvenue dans la haute société)",
+                            LanguageNumber = 1,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Background = "Sage",
+                            Feature = "Chercheur",
+                            LanguageNumber = 2,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Background = "Sauvageon",
+                            Feature = "Éternel vagabond",
+                            LanguageNumber = 1,
+                            SourceId = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Background = "Soldat",
+                            Feature = "Grade militaire",
+                            LanguageNumber = 0,
+                            SourceId = 1
+                        });
+                });
+
+            modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundsItems", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BackgroundId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BackgroundId");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("BackgroundsItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BackgroundId = 3,
+                            ItemId = 68
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BackgroundId = 4,
+                            ItemId = 68
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BackgroundId = 4,
+                            ItemId = 67
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BackgroundId = 6,
+                            ItemId = 87
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BackgroundId = 7,
+                            ItemId = 68
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BackgroundId = 7,
+                            ItemId = 87
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BackgroundId = 8,
+                            ItemId = 66
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BackgroundId = 10,
+                            ItemId = 86
+                        });
+                });
+
+            modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundsSkills", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,39 +264,176 @@ namespace LaboFinalAPIDAL.Migrations
                     b.HasIndex("SkillId");
 
                     b.ToTable("BackgroundSkills");
-                });
 
-            modelBuilder.Entity("LaboFinalAPIDomain.Models.Backgrounds", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Background")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Feature")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LanguageNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SourceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SourceId");
-
-                    b.ToTable("Backgrounds");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BackgroundId = 1,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BackgroundId = 1,
+                            SkillId = 15
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BackgroundId = 2,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BackgroundId = 2,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BackgroundId = 3,
+                            SkillId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BackgroundId = 3,
+                            SkillId = 16
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BackgroundId = 4,
+                            SkillId = 6
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BackgroundId = 4,
+                            SkillId = 18
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BackgroundId = 5,
+                            SkillId = 7
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BackgroundId = 5,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BackgroundId = 6,
+                            SkillId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BackgroundId = 6,
+                            SkillId = 18
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BackgroundId = 7,
+                            SkillId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BackgroundId = 7,
+                            SkillId = 6
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BackgroundId = 8,
+                            SkillId = 11
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BackgroundId = 8,
+                            SkillId = 15
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BackgroundId = 9,
+                            SkillId = 5
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BackgroundId = 9,
+                            SkillId = 17
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BackgroundId = 10,
+                            SkillId = 3
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BackgroundId = 10,
+                            SkillId = 13
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BackgroundId = 11,
+                            SkillId = 7
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BackgroundId = 11,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BackgroundId = 12,
+                            SkillId = 2
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BackgroundId = 12,
+                            SkillId = 7
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BackgroundId = 13,
+                            SkillId = 3
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BackgroundId = 13,
+                            SkillId = 17
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BackgroundId = 14,
+                            SkillId = 3
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BackgroundId = 14,
+                            SkillId = 8
+                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.ClassSkills", b =>
@@ -1685,7 +2040,7 @@ namespace LaboFinalAPIDAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("EntitieId")
+                    b.Property<int>("EntityId")
                         .HasColumnType("int");
 
                     b.Property<int>("ItemId")
@@ -1693,7 +2048,7 @@ namespace LaboFinalAPIDAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EntitieId");
+                    b.HasIndex("EntityId");
 
                     b.HasIndex("ItemId");
 
@@ -1711,7 +2066,7 @@ namespace LaboFinalAPIDAL.Migrations
                     b.Property<int?>("Ca")
                         .HasColumnType("int");
 
-                    b.Property<int>("Ca_Bonus")
+                    b.Property<int?>("Ca_Bonus")
                         .HasColumnType("int");
 
                     b.Property<int?>("DiceNumber")
@@ -1724,23 +2079,1707 @@ namespace LaboFinalAPIDAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
+                    b.Property<int?>("Price")
                         .HasColumnType("int");
 
                     b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TypeItemId")
-                        .HasColumnType("int");
+                    b.Property<string>("propreties")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("weight")
-                        .HasColumnType("real");
+                    b.Property<double?>("weight")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TypeItemId");
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Items");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Bâton",
+                            Price = 200,
+                            TypeId = 1,
+                            propreties = "Polyvalente (1d8)",
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Dague",
+                            Price = 2000,
+                            TypeId = 1,
+                            propreties = "Finesse, légère, lancer (portée 6 m/18 m)",
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Gourdin",
+                            Price = 100,
+                            TypeId = 1,
+                            propreties = "Légère",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Hachette",
+                            Price = 5000,
+                            TypeId = 1,
+                            propreties = "Légère, lancer (portée 6 m/18 m)",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Javeline",
+                            Price = 500,
+                            TypeId = 1,
+                            propreties = "Lancer (portée 9 m/36 m)",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Lance",
+                            Price = 100,
+                            TypeId = 1,
+                            propreties = "Lancer (portée 6 m/18 m), polyvalente (1d8)",
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Marteau léger",
+                            Price = 2000,
+                            TypeId = 1,
+                            propreties = "Légère, lancer (portée 6 m/18 m)",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Masse d'armes",
+                            Price = 5000,
+                            TypeId = 1,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Massue",
+                            Price = 200,
+                            TypeId = 1,
+                            propreties = "À deux mains",
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Serpe",
+                            Price = 100,
+                            TypeId = 1,
+                            propreties = "Légère",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Arbalète légère",
+                            Price = 2500,
+                            TypeId = 2,
+                            propreties = "Munitions (portée 24 m/96 m), chargement, à deux mains",
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Arc court",
+                            Price = 2500,
+                            TypeId = 2,
+                            propreties = "Munitions (portée 24 m/96 m), à deux mains",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Fléchette",
+                            Price = 50,
+                            TypeId = 2,
+                            propreties = "Finesse, lancer (portée 6 m/18 m)",
+                            weight = 100.0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Fronde",
+                            Price = 100,
+                            TypeId = 2,
+                            propreties = "Munitions (portée 9 m/36 m)",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Cimeterre",
+                            Price = 2500,
+                            TypeId = 3,
+                            propreties = "Finesse, légère",
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DiceNumber = 1,
+                            DiceType = 10,
+                            Item = "Coutille",
+                            Price = 2000,
+                            TypeId = 3,
+                            propreties = "Lourde, allonge, à deux mains",
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DiceNumber = 3,
+                            DiceType = 6,
+                            Item = "Épée à deux mains",
+                            Price = 5000,
+                            TypeId = 3,
+                            propreties = "Lourde, à deux mains",
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Épée courte",
+                            Price = 1000,
+                            TypeId = 3,
+                            propreties = "Finesse, légère",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Épée longue",
+                            Price = 1500,
+                            TypeId = 3,
+                            propreties = "Polyvalente (1d10)",
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Fléau d'armes",
+                            Price = 1000,
+                            TypeId = 3,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DiceNumber = 1,
+                            DiceType = 4,
+                            Item = "Fouet",
+                            Price = 200,
+                            TypeId = 3,
+                            propreties = "Finesse, allonge",
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DiceNumber = 1,
+                            DiceType = 12,
+                            Item = "Hache à deux mains",
+                            Price = 3000,
+                            TypeId = 3,
+                            propreties = "Lourde, à deux mains",
+                            weight = 3500.0
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Hache d'armes",
+                            Price = 1000,
+                            TypeId = 3,
+                            propreties = "Polyvalente (1d10)",
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DiceNumber = 1,
+                            DiceType = 10,
+                            Item = "Hallebarde",
+                            Price = 2000,
+                            TypeId = 3,
+                            propreties = "Lourde, allonge, à deux mains",
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DiceNumber = 1,
+                            DiceType = 12,
+                            Item = "Lance d’arçon",
+                            Price = 1000,
+                            TypeId = 3,
+                            propreties = "Allonge, spécial",
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DiceNumber = 2,
+                            DiceType = 6,
+                            Item = "Maillet",
+                            Price = 1000,
+                            TypeId = 3,
+                            propreties = "Lourde, à deux mains",
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 27,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Marteau de guerre",
+                            Price = 1500,
+                            TypeId = 3,
+                            propreties = "Polyvalente (1d10)",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 28,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Morgenstern",
+                            Price = 1500,
+                            TypeId = 3,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 29,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Pic de guerre",
+                            Price = 500,
+                            TypeId = 3,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 30,
+                            DiceNumber = 1,
+                            DiceType = 10,
+                            Item = "Pique",
+                            Price = 500,
+                            TypeId = 3,
+                            propreties = "Lourde, allonge, à deux mains",
+                            weight = 9000.0
+                        },
+                        new
+                        {
+                            Id = 31,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Rapière",
+                            Price = 2500,
+                            TypeId = 3,
+                            propreties = "Finesse",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 32,
+                            DiceNumber = 1,
+                            DiceType = 6,
+                            Item = "Trident",
+                            Price = 500,
+                            TypeId = 3,
+                            propreties = "Lancer (portée 6 m/18 m), polyvalente (1d8)",
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 33,
+                            DiceNumber = 4,
+                            DiceType = 6,
+                            Item = "Arbalète de poing",
+                            Price = 7500,
+                            TypeId = 2,
+                            propreties = "Munitions (portée 9 m/36 m), légère, chargement",
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 34,
+                            DiceNumber = 4,
+                            DiceType = 10,
+                            Item = "Arbalète lourde",
+                            Price = 5000,
+                            TypeId = 2,
+                            propreties = "Munitions (portée 30 m/120 m), lourde, chargement, à deux mains",
+                            weight = 9000.0
+                        },
+                        new
+                        {
+                            Id = 35,
+                            DiceNumber = 1,
+                            DiceType = 8,
+                            Item = "Arc long",
+                            Price = 5000,
+                            TypeId = 2,
+                            propreties = "Munitions (portée 45 m/180 m), lourde, à deux mains",
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 36,
+                            DiceNumber = 0,
+                            DiceType = 0,
+                            Item = "Filet",
+                            Price = 100,
+                            TypeId = 4,
+                            propreties = "Lancer (portée 1,50 m/4,50 m), spécial",
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 37,
+                            DiceNumber = 1,
+                            DiceType = 1,
+                            Item = "Sarbacane",
+                            Price = 1000,
+                            TypeId = 4,
+                            propreties = "Munitions (portée 7,50 m/15 m), légère",
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Ca = 11,
+                            Item = "Matelassée",
+                            Price = 500,
+                            TypeId = 5,
+                            propreties = "Discrétion : Désavantage",
+                            weight = 4000.0
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Ca = 11,
+                            Item = "Cuir",
+                            Price = 1000,
+                            TypeId = 5,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Ca = 12,
+                            Item = "Cuir clouté",
+                            Price = 4500,
+                            TypeId = 5,
+                            weight = 6500.0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Ca = 12,
+                            Item = "Peaux",
+                            Price = 1000,
+                            TypeId = 6,
+                            propreties = "Mod.Dex (max +2)",
+                            weight = 6000.0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Ca = 13,
+                            Item = "Chemise de mailles",
+                            Price = 5000,
+                            TypeId = 6,
+                            propreties = "Mod.Dex (max +2)",
+                            weight = 10000.0
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Ca = 14,
+                            Item = "Écailles",
+                            Price = 5000,
+                            TypeId = 6,
+                            propreties = "Mod.Dex (max +2), Discrétion : Désavantage",
+                            weight = 22500.0
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Ca = 14,
+                            Item = "Cuirasse",
+                            Price = 40000,
+                            TypeId = 6,
+                            propreties = "Mod.Dex (max +2)",
+                            weight = 10000.0
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Ca = 15,
+                            Item = "Demi-plate",
+                            Price = 75000,
+                            TypeId = 6,
+                            propreties = "Mod.Dex (max +2), Discrétion : Désavantage",
+                            weight = 20000.0
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Ca = 14,
+                            Item = "Broigne",
+                            Price = 3000,
+                            TypeId = 7,
+                            propreties = "Discrétion : Désavantage",
+                            weight = 20000.0
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Ca = 16,
+                            Item = "Cotte de mailles",
+                            Price = 7500,
+                            TypeId = 7,
+                            propreties = "Forces : 13, Discrétion : Désavantage",
+                            weight = 27500.0
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Ca = 17,
+                            Item = "Clibanion",
+                            Price = 20000,
+                            TypeId = 7,
+                            propreties = "Forces : 15, Discrétion : Désavantage",
+                            weight = 30000.0
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Ca = 18,
+                            Item = "Harnois",
+                            Price = 150000,
+                            TypeId = 7,
+                            propreties = "Forces : 15, Discrétion : Désavantage",
+                            weight = 32500.0
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Ca = 2,
+                            Item = "Bouclier",
+                            Price = 1000,
+                            TypeId = 8,
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Item = "Chalemie",
+                            Price = 200,
+                            TypeId = 9,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Item = "Cor",
+                            Price = 300,
+                            TypeId = 9,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Item = "Cornemuse",
+                            Price = 3000,
+                            TypeId = 9,
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Item = "Flûte",
+                            Price = 200,
+                            TypeId = 9,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Item = "Flûte de pan",
+                            Price = 1200,
+                            TypeId = 9,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Item = "Luth",
+                            Price = 3500,
+                            TypeId = 9,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Item = "Lyre",
+                            Price = 3000,
+                            TypeId = 9,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Item = "Tambour",
+                            Price = 600,
+                            TypeId = 9,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Item = "Tympanon",
+                            Price = 2500,
+                            TypeId = 9,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Item = "Viole",
+                            Price = 3000,
+                            TypeId = 9,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Item = "Dés",
+                            Price = 10,
+                            TypeId = 10,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Item = "Jeu d'échecs draconiques",
+                            Price = 100,
+                            TypeId = 10,
+                            weight = 250.0
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Item = "Jeu de cartes",
+                            Price = 50,
+                            TypeId = 10,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Item = "Jeu des Dragons",
+                            Price = 100,
+                            TypeId = 10,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Item = "Kit d'empoisonneur",
+                            Price = 5000,
+                            TypeId = 11,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Item = "Kit d'herboriste",
+                            Price = 500,
+                            TypeId = 11,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Item = "Kit de contrefaçon",
+                            Price = 1500,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Item = "Kit de déguisement",
+                            Price = 2500,
+                            TypeId = 11,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Item = "Matériel d'alchimiste",
+                            Price = 5000,
+                            TypeId = 11,
+                            weight = 4000.0
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Item = "Matériel de brasseur",
+                            Price = 2000,
+                            TypeId = 11,
+                            weight = 4500.0
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Item = "Matériel de calligraphe",
+                            Price = 1000,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Item = "Matériel de peintre",
+                            Price = 1000,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Item = "Outils de bijoutier",
+                            Price = 2500,
+                            TypeId = 11,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Item = "Outils de bricoleur",
+                            Price = 5000,
+                            TypeId = 11,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Item = "Outils de cartographe",
+                            Price = 1500,
+                            TypeId = 11,
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Item = "Outils de charpentier",
+                            Price = 800,
+                            TypeId = 11,
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Item = "Outils de cordonnier",
+                            Price = 500,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Item = "Outils de forgeron",
+                            Price = 2000,
+                            TypeId = 11,
+                            weight = 4000.0
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Item = "Outils de maçon",
+                            Price = 1000,
+                            TypeId = 11,
+                            weight = 4000.0
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Item = "Outils de menuisier",
+                            Price = 100,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Item = "Outils de potier",
+                            Price = 1000,
+                            TypeId = 11,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Item = "Outils de souffleur de verre",
+                            Price = 3000,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Item = "Outils de tanneur",
+                            Price = 500,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 84,
+                            Item = "Outils de tisserand",
+                            Price = 100,
+                            TypeId = 11,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 85,
+                            Item = "Ustensiles de cuisinier",
+                            Price = 100,
+                            TypeId = 11,
+                            weight = 4000.0
+                        },
+                        new
+                        {
+                            Id = 86,
+                            Item = "Outils de navigateur",
+                            Price = 2500,
+                            TypeId = 11,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 87,
+                            Item = "Outils de voleur",
+                            Price = 2500,
+                            TypeId = 11,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Item = "Âne ou mule",
+                            Price = 800,
+                            TypeId = 12,
+                            propreties = "Vitesse : 12 m, Capacité de charge : 210 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 89,
+                            Item = "Chameau",
+                            Price = 5000,
+                            TypeId = 12,
+                            propreties = "Vitesse : 15 m, Capacité de charge : 240 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 90,
+                            Item = "Cheval de guerre",
+                            Price = 40000,
+                            TypeId = 12,
+                            propreties = "Vitesse : 18 m, Capacité de charge : 270 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 91,
+                            Item = "Cheval de selle",
+                            Price = 7500,
+                            TypeId = 12,
+                            propreties = "Vitesse : 18 m, Capacité de charge : 240 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 92,
+                            Item = "Cheval de trait",
+                            Price = 5000,
+                            TypeId = 12,
+                            propreties = "Vitesse : 12 m, Capacité de charge : 270 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 93,
+                            Item = "Éléphant",
+                            Price = 20000,
+                            TypeId = 12,
+                            propreties = "Vitesse : 12 m, Capacité de charge : 660 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 94,
+                            Item = "Molosse",
+                            Price = 2500,
+                            TypeId = 12,
+                            propreties = "Vitesse : 12 m, Capacité de charge : 95 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 95,
+                            Item = "Poney",
+                            Price = 3000,
+                            TypeId = 12,
+                            propreties = "Vitesse : 12 m, Capacité de charge : 115 kg",
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 97,
+                            Item = "Antidote (fiole)",
+                            Price = 5000,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 98,
+                            Item = "Balance de marchand",
+                            Price = 500,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 99,
+                            Item = "Bélier portable",
+                            Price = 400,
+                            TypeId = 13,
+                            weight = 17500.0
+                        },
+                        new
+                        {
+                            Id = 100,
+                            Item = "Billes (sac de 1000)",
+                            Price = 100,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 101,
+                            Item = "Boite d'allume-feu",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 102,
+                            Item = "Bougie",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 103,
+                            Item = "Boulier",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 104,
+                            Item = "Bouteille en verre",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 105,
+                            Item = "Cadenas",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 106,
+                            Item = "Carquois",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 107,
+                            Item = "Chaîne (3 m)",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 108,
+                            Item = "Chausse-trappes (sac de 20)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 109,
+                            Item = "Chevalière",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 110,
+                            Item = "Cire à cacheter",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 111,
+                            Item = "Cloche",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 112,
+                            Item = "Coffre",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 12500.0
+                        },
+                        new
+                        {
+                            Id = 113,
+                            Item = "Corde en chanvre (15 m)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 114,
+                            Item = "Corde en soie (15 m)",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 115,
+                            Item = "Couverture",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 116,
+                            Item = "Craie (un morceau)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 117,
+                            Item = "Cruche ou pichet",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 118,
+                            Item = "Eau bénite (flasque)",
+                            Price = 2500,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 119,
+                            Item = "Échelle (3 m)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 12500.0
+                        },
+                        new
+                        {
+                            Id = 120,
+                            Item = "Encre (bouteille de 30 ml)",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 121,
+                            Item = "Étui à carreaux",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 122,
+                            Item = "Étui à cartes ou parchemins",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 123,
+                            Item = "Feu grégeois (flasque)",
+                            Price = 5000,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 124,
+                            Item = "Fiole (10 cl)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 125,
+                            Item = "Flasque ou chope (50 cl)",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 126,
+                            Item = "Focaliseur arcanique - Baguette",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 127,
+                            Item = "Focaliseur arcanique - Bâton",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 128,
+                            Item = "Focaliseur arcanique - Boule de cristal",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 129,
+                            Item = "Focaliseur arcanique - Orbe",
+                            Price = 20,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 130,
+                            Item = "Focaliseur arcanique - Sceptre",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 131,
+                            Item = "Focaliseur druidique - Baguette d'if",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 132,
+                            Item = "Focaliseur druidique - Bâton",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 133,
+                            Item = "Focaliseur druidique - Branche de gui",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 134,
+                            Item = "Focaliseur druidique - Totem",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 135,
+                            Item = "Gamelle",
+                            Price = 2,
+                            TypeId = 7,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 136,
+                            Item = "Gourde (pleine)",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 137,
+                            Item = "Grappin",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 138,
+                            Item = "Grimoire",
+                            Price = 50,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 139,
+                            Item = "Huile (flasque)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 140,
+                            Item = "Kit d’escalade",
+                            Price = 25,
+                            TypeId = 13,
+                            weight = 6000.0
+                        },
+                        new
+                        {
+                            Id = 141,
+                            Item = "Lampe",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 142,
+                            Item = "Lanterne à capote",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 143,
+                            Item = "Lanterne sourde",
+                            Price = 10,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 144,
+                            Item = "Livre",
+                            Price = 25,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 145,
+                            Item = "Longue-vue",
+                            Price = 1000,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 146,
+                            Item = "Loupe",
+                            Price = 100,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 147,
+                            Item = "Marteau",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 148,
+                            Item = "Marteau de forgeron",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 149,
+                            Item = "Matériel de pêche",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 150,
+                            Item = "Menottes",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 151,
+                            Item = "Miroir en acier",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 250.0
+                        },
+                        new
+                        {
+                            Id = 152,
+                            Item = "Aiguilles de sarbacane (50)",
+                            Price = 100,
+                            TypeId = 11,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 153,
+                            Item = "Billes de fronde (20)",
+                            Price = 4,
+                            TypeId = 11,
+                            weight = 750.0
+                        },
+                        new
+                        {
+                            Id = 154,
+                            Item = "Carreaux d'arbalète (20)",
+                            Price = 1,
+                            TypeId = 11,
+                            weight = 750.0
+                        },
+                        new
+                        {
+                            Id = 155,
+                            Item = "Flèches (20)",
+                            Price = 1,
+                            TypeId = 11,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 156,
+                            Item = "Palan",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 157,
+                            Item = "Panier",
+                            Price = 4,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 158,
+                            Item = "Papier (une feuille)",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 159,
+                            Item = "Parchemin (une feuille)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 160,
+                            Item = "Parfum (fiole)",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 161,
+                            Item = "Pelle",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 162,
+                            Item = "Perche (3 m)",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 3500.0
+                        },
+                        new
+                        {
+                            Id = 163,
+                            Item = "Pied-de-biche",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 164,
+                            Item = "Piège à mâchoires",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 12500.0
+                        },
+                        new
+                        {
+                            Id = 165,
+                            Item = "Pierre à aiguiser",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 166,
+                            Item = "Pioche de mineur",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 167,
+                            Item = "Piton",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 125.0
+                        },
+                        new
+                        {
+                            Id = 168,
+                            Item = "Plume d’écriture",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 169,
+                            Item = "Pointes en fer (10)",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 170,
+                            Item = "Poison (fiole)",
+                            Price = 100,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 171,
+                            Item = "Pot en fer",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 5000.0
+                        },
+                        new
+                        {
+                            Id = 172,
+                            Item = "Potion de guérison",
+                            Price = 50,
+                            TypeId = 13,
+                            weight = 250.0
+                        },
+                        new
+                        {
+                            Id = 173,
+                            Item = "Rations (1 jour)",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 174,
+                            Item = "Robes",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 175,
+                            Item = "Sablier",
+                            Price = 25,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 176,
+                            Item = "Sac",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 250.0
+                        },
+                        new
+                        {
+                            Id = 177,
+                            Item = "Sac à dos",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 2500.0
+                        },
+                        new
+                        {
+                            Id = 178,
+                            Item = "Sac de couchage",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 3500.0
+                        },
+                        new
+                        {
+                            Id = 179,
+                            Item = "Sacoche",
+                            Price = 5,
+                            TypeId = 10,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 180,
+                            Item = "Sacoche à composantes",
+                            Price = 25,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 181,
+                            Item = "Savon",
+                            Price = 2,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 182,
+                            Item = "Seau",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 183,
+                            Item = "Sifflet",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 184,
+                            Item = "Amulette",
+                            Price = 5,
+                            TypeId = 12,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 185,
+                            Item = "Emblème",
+                            Price = 5,
+                            TypeId = 12,
+                            weight = 0.0
+                        },
+                        new
+                        {
+                            Id = 186,
+                            Item = "Reliquaire",
+                            Price = 5,
+                            TypeId = 12,
+                            weight = 1000.0
+                        },
+                        new
+                        {
+                            Id = 187,
+                            Item = "Tente",
+                            Price = 200,
+                            TypeId = 13,
+                            weight = 10000.0
+                        },
+                        new
+                        {
+                            Id = 188,
+                            Item = "Tonneau",
+                            Price = 200,
+                            TypeId = 13,
+                            weight = 35000.0
+                        },
+                        new
+                        {
+                            Id = 189,
+                            Item = "Torche",
+                            Price = 1,
+                            TypeId = 13,
+                            weight = 500.0
+                        },
+                        new
+                        {
+                            Id = 190,
+                            Item = "Trousse de soins",
+                            Price = 500,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 191,
+                            Item = "Vêtements, communs",
+                            Price = 5,
+                            TypeId = 13,
+                            weight = 1500.0
+                        },
+                        new
+                        {
+                            Id = 192,
+                            Item = "Vêtements, costume",
+                            Price = 500,
+                            TypeId = 13,
+                            weight = 2000.0
+                        },
+                        new
+                        {
+                            Id = 193,
+                            Item = "Vêtements, fins",
+                            Price = 1500,
+                            TypeId = 13,
+                            weight = 3000.0
+                        },
+                        new
+                        {
+                            Id = 194,
+                            Item = "Vêtements, voyage",
+                            Price = 200,
+                            TypeId = 13,
+                            weight = 2000.0
+                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Languages", b =>
@@ -3326,6 +5365,83 @@ namespace LaboFinalAPIDAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TypesItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TypeItem = "Armes courantes de corps à corps"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TypeItem = "Armes courantes à distance"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            TypeItem = "Armes de guerre de corps à corps"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            TypeItem = "Armes de guerre à distance"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            TypeItem = "Armures légères"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            TypeItem = "Armures intermédiaires"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            TypeItem = "Amures lourdes"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            TypeItem = "Bouclier"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            TypeItem = "Instrument de musique"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            TypeItem = "Jeux"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            TypeItem = "Outils d'artisan"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            TypeItem = "Montures"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            TypeItem = "Objet"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            TypeItem = "Munitions"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            TypeItem = "Symbole sacré"
+                        });
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Users", b =>
@@ -3358,7 +5474,37 @@ namespace LaboFinalAPIDAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundSkills", b =>
+            modelBuilder.Entity("LaboFinalAPIDomain.Models.Backgrounds", b =>
+                {
+                    b.HasOne("LaboFinalAPIDomain.Models.Sources", "Source")
+                        .WithMany()
+                        .HasForeignKey("SourceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Source");
+                });
+
+            modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundsItems", b =>
+                {
+                    b.HasOne("LaboFinalAPIDomain.Models.Backgrounds", "Background")
+                        .WithMany()
+                        .HasForeignKey("BackgroundId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LaboFinalAPIDomain.Models.Items", "item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Background");
+
+                    b.Navigation("item");
+                });
+
+            modelBuilder.Entity("LaboFinalAPIDomain.Models.BackgroundsSkills", b =>
                 {
                     b.HasOne("LaboFinalAPIDomain.Models.Backgrounds", "Background")
                         .WithMany()
@@ -3375,17 +5521,6 @@ namespace LaboFinalAPIDAL.Migrations
                     b.Navigation("Background");
 
                     b.Navigation("Skill");
-                });
-
-            modelBuilder.Entity("LaboFinalAPIDomain.Models.Backgrounds", b =>
-                {
-                    b.HasOne("LaboFinalAPIDomain.Models.Sources", "Source")
-                        .WithMany()
-                        .HasForeignKey("SourceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Source");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.ClassSkills", b =>
@@ -3533,9 +5668,9 @@ namespace LaboFinalAPIDAL.Migrations
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Inventories", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.Entities", "Entitie")
+                    b.HasOne("LaboFinalAPIDomain.Models.Entities", "Entity")
                         .WithMany()
-                        .HasForeignKey("EntitieId")
+                        .HasForeignKey("EntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -3545,18 +5680,18 @@ namespace LaboFinalAPIDAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Entitie");
+                    b.Navigation("Entity");
 
                     b.Navigation("Item");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.Items", b =>
                 {
-                    b.HasOne("LaboFinalAPIDomain.Models.TypesItems", "TypeItem")
+                    b.HasOne("LaboFinalAPIDomain.Models.TypesItems", "Type")
                         .WithMany()
-                        .HasForeignKey("TypeItemId");
+                        .HasForeignKey("TypeId");
 
-                    b.Navigation("TypeItem");
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("LaboFinalAPIDomain.Models.RaceLanguages", b =>

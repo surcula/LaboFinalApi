@@ -19,6 +19,6 @@ namespace LaboFinalAPIDomain.Models
         public int? DiceNumber { get;set; }
         public string? propreties { get; set; }
         public int? TypeId {  get; set; }
-        public TypesItems? TypeItem { get; set; }
+        public TypesItems? Type { get; set; }
     }
 }

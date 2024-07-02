@@ -52,6 +52,7 @@ builder.Services.AddScoped<IRaceLanguagesService, RaceLanguageService>();
 builder.Services.AddScoped<IClassSkillsRepository, ClassSkillRepo>();
 builder.Services.AddScoped<IClassSkillsService, ClassSkillService>();
 
+builder.Services.AddScoped<IBackgroundSkillsRepository, BackgroundSkillsRepo>();
 
 
 var app = builder.Build();

@@ -10,6 +10,6 @@ namespace LaboFinalAPIDomain.Models
     {
         public int Id { get; set; }
         public Items Item { get; set; }
-        public Entities Entitie { get; set; }
+        public Entities Entity { get; set; }
     }
 }

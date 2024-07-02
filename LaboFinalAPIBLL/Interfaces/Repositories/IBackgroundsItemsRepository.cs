@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIBLL.Interfaces.Repositories
 {
-    public interface IBackgroundSkillsRepository
+    public interface IBackgroundsItemsRepository
     {
-        IEnumerable<Skills> GetByBackgroundId(int backgroundId);
+       
     }
 }

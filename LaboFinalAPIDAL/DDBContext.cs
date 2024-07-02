@@ -11,8 +11,9 @@ namespace LaboFinalAPIDAL
 {
     public class DDBContext : DbContext
     {
+        DbSet<BackgroundsItems> BackgroundsItems { get; set; }
         DbSet<Backgrounds> Backgrounds { get; set; }
-        DbSet<BackgroundSkills> BackgroundSkills { get; set; }
+        DbSet<BackgroundsSkills> BackgroundSkills { get; set; }
         DbSet<Classes> Classes { get; set; }
         DbSet<ClassSkills> ClassSkills { get; set; }
         DbSet<Entities> Entities { get; set; }
@@ -38,16 +39,22 @@ namespace LaboFinalAPIDAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new BackgroundsConfig());
+            modelBuilder.ApplyConfiguration(new BackgroundsItemsConfig());
+            modelBuilder.ApplyConfiguration(new BackgroundSkillsConfig());
             modelBuilder.ApplyConfiguration(new ClassesConfig());
             modelBuilder.ApplyConfiguration(new ClassSkillConfig());
             modelBuilder.ApplyConfiguration(new EntitiesConfig());
             modelBuilder.ApplyConfiguration(new FeatsConfig());
+            modelBuilder.ApplyConfiguration(new ItemsConfig());
             modelBuilder.ApplyConfiguration(new LanguagesConfig());
-            modelBuilder.ApplyConfiguration(new RaceLanguageConfig());
+            modelBuilder.ApplyConfiguration(new RaceLanguagesConfig());
             modelBuilder.ApplyConfiguration(new RacesConfig());
             modelBuilder.ApplyConfiguration(new SkillsConfig());
             modelBuilder.ApplyConfiguration(new SourcesConfig());
             modelBuilder.ApplyConfiguration(new SpellsConfig());
+            modelBuilder.ApplyConfiguration(new TypeItemConfig());
+
         }
     }
 }

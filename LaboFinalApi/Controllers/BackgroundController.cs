@@ -26,7 +26,6 @@ namespace LaboFinalApi.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex);
             }
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaboFinalAPIDAL.Configurations
 {
-    internal class RaceLanguageConfig : IEntityTypeConfiguration<RaceLanguages>
+    internal class RaceLanguagesConfig : IEntityTypeConfiguration<RaceLanguages>
     {
         public void Configure(EntityTypeBuilder<RaceLanguages> builder)
         {
