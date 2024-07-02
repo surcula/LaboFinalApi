@@ -18,7 +18,6 @@ namespace LaboFinalAPIDomain.Models
         public int CharismaBonus { get; set; }
         public int DV {  get; set; }
         public int NbSkill {  get; set; }
-
         public int SourceId { get; set; }
         public Sources Source { get; set; }
 

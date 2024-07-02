@@ -17,7 +17,8 @@ namespace LaboFinalAPIDAL.Repositories
         /// <returns>An enumerable collection of races.</returns>
         public IEnumerable<Races> GetAll()
         {
-            return dDBContext.Set<Races>();
+            return dDBContext.Set<Races>()
+                .ToList();
         }
     }
 }

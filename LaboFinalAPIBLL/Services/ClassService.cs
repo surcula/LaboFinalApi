@@ -14,10 +14,9 @@ namespace LaboFinalAPIBLL.Services
     public class ClassService(IClassesRepository classesRepository, IClassSkillsRepository classSkillsRepository) : IClassesService
     {
         /// <summary>
-        /// return all classes
+        /// return all classes 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public IEnumerable<ClassComplete> GetAll()
         {
 
@@ -28,7 +27,6 @@ namespace LaboFinalAPIBLL.Services
                 {
                     Classes = Class,
                     Skills = classSkillsRepository.GetByClassId(Class.Id)
-
                 };
             }
         }

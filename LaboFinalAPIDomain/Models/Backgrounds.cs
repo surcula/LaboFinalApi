@@ -14,6 +14,7 @@ namespace LaboFinalAPIDomain.Models
         public string Feature { get; set; }
         public string FeatureDescription { get; set; }
         public int SourceId { get; set; }
+        IEnumerable<Items> outils { get; set; }
         public Sources Source { get; set; }
 
     }

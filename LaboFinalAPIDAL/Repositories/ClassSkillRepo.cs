@@ -27,6 +27,9 @@ namespace LaboFinalAPIDAL.Repositories
                .Select(cs => cs.Skill)
                .ToList();
                 return skills;
+
+                dDBContext.Database.CloseConnection();
+                dDBContext.Database.OpenConnection();
             }
         }
     }
