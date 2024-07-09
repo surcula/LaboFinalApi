@@ -4,6 +4,7 @@ using LaboFinalAPIDAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaboFinalAPIDAL.Migrations
 {
     [DbContext(typeof(DDBContext))]
-    partial class DDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240707190658_test2")]
+    partial class test2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4209,7 +4212,7 @@ namespace LaboFinalAPIDAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CharismasBonus")
+                    b.Property<string>("CharismsBonus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4258,7 +4261,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 1,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "2",
                             IntelligenceBonus = "1",
@@ -4272,7 +4275,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 2,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "2",
                             IntelligenceBonus = "0",
@@ -4286,7 +4289,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 3,
-                            CharismasBonus = "1",
+                            CharismsBonus = "1",
                             ConstitutionBonus = "0",
                             DexterityBonus = "2",
                             IntelligenceBonus = "0",
@@ -4300,7 +4303,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 4,
-                            CharismasBonus = "1",
+                            CharismsBonus = "1",
                             ConstitutionBonus = "0",
                             DexterityBonus = "2",
                             IntelligenceBonus = "0",
@@ -4314,7 +4317,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 5,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "1",
                             DexterityBonus = "2",
                             IntelligenceBonus = "0",
@@ -4328,7 +4331,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 6,
-                            CharismasBonus = "1",
+                            CharismsBonus = "1",
                             ConstitutionBonus = "1",
                             DexterityBonus = "1",
                             IntelligenceBonus = "1",
@@ -4342,7 +4345,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 7,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4356,7 +4359,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 8,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "2",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4370,7 +4373,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 9,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "2",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4384,7 +4387,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 10,
-                            CharismasBonus = "2",
+                            CharismsBonus = "2",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4398,7 +4401,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 11,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "1",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4412,7 +4415,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 12,
-                            CharismasBonus = "1",
+                            CharismsBonus = "1",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4426,7 +4429,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 13,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "1",
                             IntelligenceBonus = "2",
@@ -4440,7 +4443,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 14,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "1",
                             DexterityBonus = "0",
                             IntelligenceBonus = "2",
@@ -4454,7 +4457,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 15,
-                            CharismasBonus = "2",
+                            CharismsBonus = "2",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "1",
@@ -4468,7 +4471,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 16,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4482,7 +4485,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 17,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4496,7 +4499,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 18,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4510,7 +4513,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 19,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4524,7 +4527,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 20,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4538,7 +4541,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 21,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4552,7 +4555,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 22,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4566,7 +4569,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 23,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4580,7 +4583,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 24,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4594,7 +4597,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 25,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4608,7 +4611,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 26,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4622,7 +4625,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 27,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4636,7 +4639,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 28,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4650,7 +4653,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 29,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4664,7 +4667,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 30,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4678,7 +4681,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 31,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4692,7 +4695,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 32,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4706,7 +4709,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 33,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4720,7 +4723,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 34,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4734,7 +4737,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 35,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4748,7 +4751,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 36,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4762,7 +4765,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 37,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4776,7 +4779,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 38,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4790,7 +4793,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 39,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4804,7 +4807,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 40,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4818,7 +4821,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 41,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4832,7 +4835,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 42,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4846,7 +4849,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 43,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4860,7 +4863,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 44,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4874,7 +4877,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 45,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4888,7 +4891,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 46,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4902,7 +4905,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 47,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4916,7 +4919,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 48,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4930,7 +4933,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 49,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4944,7 +4947,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 50,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4958,7 +4961,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 51,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4972,7 +4975,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 52,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",
@@ -4986,7 +4989,7 @@ namespace LaboFinalAPIDAL.Migrations
                         new
                         {
                             Id = 53,
-                            CharismasBonus = "0",
+                            CharismsBonus = "0",
                             ConstitutionBonus = "0",
                             DexterityBonus = "0",
                             IntelligenceBonus = "0",

@@ -22,12 +22,8 @@ namespace LaboFinalAPIDAL.Repositories
                                        .Include(s => s.Skill)
                                        .Select(bs => bs.Skill)
                                        .ToList();
-
                 return skills;
-            }
-            
-            
-            
+            }            
         }
     }
 }

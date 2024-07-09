@@ -25,7 +25,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "1",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -39,7 +39,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "0",
                     WisdomBonus = "1",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -53,7 +53,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "1",
+                    CharismasBonus = "1",
                     SourceId = 1
                 },
                 new Races
@@ -67,7 +67,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "1",
+                    CharismasBonus = "1",
                     SourceId = 1
                 },
                 new Races
@@ -81,7 +81,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "1",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 }, new Races
                 {
@@ -94,7 +94,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "1",
                     IntelligenceBonus = "1",
                     WisdomBonus = "1",
-                    CharismsBonus = "1",
+                    CharismasBonus = "1",
                     SourceId = 1
                 },
                 new Races
@@ -108,7 +108,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -122,7 +122,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "2",
                     IntelligenceBonus = "0",
                     WisdomBonus = "1",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -136,7 +136,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "2",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -150,7 +150,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "2",
+                    CharismasBonus = "2",
                     SourceId = 1
                 },
                 new Races
@@ -164,7 +164,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "1",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                
@@ -179,7 +179,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "0",
                     WisdomBonus = "0",
-                    CharismsBonus = "1",
+                    CharismasBonus = "1",
                     SourceId = 1
                 },                
                 new Races
@@ -193,7 +193,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "2",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -207,7 +207,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "1",
                     IntelligenceBonus = "2",
                     WisdomBonus = "0",
-                    CharismsBonus = "0",
+                    CharismasBonus = "0",
                     SourceId = 1
                 },
                 new Races
@@ -221,7 +221,7 @@ namespace LaboFinalAPIDAL.Configurations
                     ConstitutionBonus = "0",
                     IntelligenceBonus = "1",
                     WisdomBonus = "0",
-                    CharismsBonus = "2",
+                    CharismasBonus = "2",
                     SourceId = 1
                 },
                 new Races{ Id = 16, Race = "Aarakocra", Size = "M", Speed = "7,5m/round (marche), 15m/round (vol)", SourceId = 9 },
@@ -254,7 +254,7 @@ namespace LaboFinalAPIDAL.Configurations
                 new Races { Id = 43, Race = "Kobold", Size = "P", Speed = "9m/round", SourceId = 9 },
                 new Races { Id = 44, Race = "Minotaure", Size = "M", Speed = "9m/round", SourceId = 9 },
                 new Races { Id = 45, Race = "Orc", Size = "M", Speed = "9m/round", SourceId = 9 },
-                new Races { Id = 46, Race = "Ressucité", Size = "M", Speed = "9m/round", SourceId = 10 },
+                new Races { Id = 46, Race = "Ressuscité", Size = "M", Speed = "9m/round", SourceId = 10 },
                 new Races { Id = 47, Race = "Sang maudit", Size = "M", Speed = "9m/round", SourceId = 10 },
                 new Races { Id = 48, Race = "Satyre", Size = "M", Speed = "10,5m/round", SourceId = 9 },
                 new Races { Id = 49, Race = "Shadar-kai", Size = "M", Speed = "9m/round", SourceId = 9 },

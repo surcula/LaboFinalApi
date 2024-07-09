@@ -15,7 +15,7 @@ namespace LaboFinalAPIDomain.Models
         public string ConstitutionBonus { get; set; } = "0";
         public string WisdomBonus { get; set; } = "0";
         public string IntelligenceBonus { get; set; } = "0";
-        public string CharismsBonus { get; set; } = "0";
+        public string CharismasBonus { get; set; } = "0";
         public string Size { get; set; }
         public string Speed { get; set; }
         public int SourceId { get; set; }
